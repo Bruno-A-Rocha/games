@@ -1,0 +1,1447 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f8f9c82990f, pid=376562, tid=376563
+#
+# JRE version: OpenJDK Runtime Environment AdoptOpenJDK (11.0.9.1+1) (build 11.0.9.1+1)
+# Java VM: OpenJDK 64-Bit Server VM AdoptOpenJDK (11.0.9.1+1, mixed mode, tiered, compressed oops, g1 gc, linux-amd64)
+# Problematic frame:
+# C  [libpangoft2-1.0.so.0+0x990f]
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/usr/lib/systemd/systemd-coredump %P %u %g %s %t %c %h" (or dumping to /home/andre/core.376562)
+#
+# If you would like to submit a bug report, please visit:
+#   https://github.com/AdoptOpenJDK/openjdk-support/issues
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -XX:+IgnoreUnrecognizedVMOptions -Dosgi.requiredJavaVersion=11 -Xms64m -Xmx1024m -Duser.home=/home/andre/snap/dbeaver-ce/108 /snap/dbeaver-ce/108/usr/share/dbeaver//plugins/org.eclipse.equinox.launcher_1.6.0.v20200915-1508.jar -os linux -ws gtk -arch x86_64 -showsplash -launcher /snap/dbeaver-ce/108/usr/share/dbeaver/dbeaver -name Dbeaver --launcher.library /snap/dbeaver-ce/108/usr/share/dbeaver//plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.2.0.v20200915-1442/eclipse_11201.so -startup /snap/dbeaver-ce/108/usr/share/dbeaver//plugins/org.eclipse.equinox.launcher_1.6.0.v20200915-1508.jar --launcher.overrideVmargs -exitdata f802f -vm /snap/dbeaver-ce/108/usr/share/dbeaver/jre/bin/java -vmargs -XX:+IgnoreUnrecognizedVMOptions -Dosgi.requiredJavaVersion=11 -Xms64m -Xmx1024m -jar /snap/dbeaver-ce/108/usr/share/dbeaver//plugins/org.eclipse.equinox.launcher_1.6.0.v20200915-1508.jar
+
+Host: Intel(R) Core(TM) i5-5200U CPU @ 2.20GHz, 4 cores, 7G, Ubuntu Core 18
+Time: Mon Apr 12 15:24:15 2021 -03 elapsed time: 14.229898 seconds (0d 0h 0m 14s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f8ff0028800):  JavaThread "main" [_thread_in_native, id=376563, stack(0x00007f8ff72bf000,0x00007f8ff73c0000)]
+
+Stack: [0x00007f8ff72bf000,0x00007f8ff73c0000],  sp=0x00007f8ff73bcff0,  free space=1015k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libpangoft2-1.0.so.0+0x990f]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  org.eclipse.swt.internal.gtk.OS.pango_font_family_list_faces(J[J[I)V+0
+j  org.eclipse.swt.graphics.Device.getFontList(Ljava/lang/String;Z)[Lorg/eclipse/swt/graphics/FontData;+195
+j  org.eclipse.jface.resource.FontRegistry.filterData([Lorg/eclipse/swt/graphics/FontData;Lorg/eclipse/swt/widgets/Display;)[Lorg/eclipse/swt/graphics/FontData;+75
+j  org.eclipse.jface.resource.FontRegistry.createFont(Ljava/lang/String;[Lorg/eclipse/swt/graphics/FontData;)Lorg/eclipse/jface/resource/FontRegistry$FontRecord;+32
+j  org.eclipse.jface.resource.FontRegistry.defaultFontRecord()Lorg/eclipse/jface/resource/FontRegistry$FontRecord;+68
+j  org.eclipse.jface.resource.FontRegistry.defaultFontData()[Lorg/eclipse/swt/graphics/FontData;+1
+j  org.eclipse.jface.resource.FontRegistry.getFontData(Ljava/lang/String;)[Lorg/eclipse/swt/graphics/FontData;+20
+j  org.eclipse.ui.internal.themes.ThemeElementHelper.installFont(Lorg/eclipse/ui/internal/themes/FontDefinition;Lorg/eclipse/ui/themes/ITheme;Lorg/eclipse/jface/preference/IPreferenceStore;Z)V+124
+j  org.eclipse.ui.internal.themes.ThemeElementHelper.populateRegistry(Lorg/eclipse/ui/themes/ITheme;[Lorg/eclipse/ui/internal/themes/FontDefinition;Lorg/eclipse/jface/preference/IPreferenceStore;)V+86
+j  org.eclipse.ui.internal.Workbench$23.runWithException()V+28
+j  org.eclipse.ui.internal.StartupThreading$StartupRunnable.run()V+1
+j  org.eclipse.swt.widgets.Synchronizer.syncExec(Ljava/lang/Runnable;)V+99
+j  org.eclipse.ui.internal.UISynchronizer.syncExec(Ljava/lang/Runnable;)V+84
+j  org.eclipse.swt.widgets.Display.syncExec(Ljava/lang/Runnable;)V+77
+j  org.eclipse.ui.internal.StartupThreading.runWithoutExceptions(Lorg/eclipse/ui/internal/StartupThreading$StartupRunnable;)V+4
+j  org.eclipse.ui.internal.Workbench.initializeFonts()V+8
+j  org.eclipse.ui.internal.Workbench.init()Z+133
+j  org.eclipse.ui.internal.Workbench.runUI()I+181
+j  org.eclipse.ui.internal.Workbench.lambda$3(Lorg/eclipse/swt/widgets/Display;Lorg/eclipse/ui/application/WorkbenchAdvisor;[I)V+363
+j  org.eclipse.ui.internal.Workbench$$Lambda$164.run()V+12
+j  org.eclipse.core.databinding.observable.Realm.runWithDefault(Lorg/eclipse/core/databinding/observable/Realm;Ljava/lang/Runnable;)V+12
+j  org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Lorg/eclipse/swt/widgets/Display;Lorg/eclipse/ui/application/WorkbenchAdvisor;)I+16
+j  org.eclipse.ui.PlatformUI.createAndRunWorkbench(Lorg/eclipse/swt/widgets/Display;Lorg/eclipse/ui/application/WorkbenchAdvisor;)I+2
+j  org.jkiss.dbeaver.ui.app.standalone.DBeaverApplication.start(Lorg/eclipse/equinox/app/IApplicationContext;)Ljava/lang/Object;+537
+j  org.eclipse.equinox.internal.app.EclipseAppHandle.run(Ljava/lang/Object;)Ljava/lang/Object;+138
+j  org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(Ljava/lang/Object;)Ljava/lang/Object;+85
+j  org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(Ljava/lang/Object;)Ljava/lang/Object;+79
+j  org.eclipse.core.runtime.adaptor.EclipseStarter.run(Ljava/lang/Object;)Ljava/lang/Object;+99
+j  org.eclipse.core.runtime.adaptor.EclipseStarter.run([Ljava/lang/String;Ljava/lang/Runnable;)Ljava/lang/Object;+132
+v  ~StubRoutines::call_stub
+j  jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Ljava/lang/reflect/Method;Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+0 java.base@11.0.9.1
+j  jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+100 java.base@11.0.9.1
+j  jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+6 java.base@11.0.9.1
+j  java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+59 java.base@11.0.9.1
+j  org.eclipse.equinox.launcher.Main.invokeFramework([Ljava/lang/String;[Ljava/net/URL;)V+201
+j  org.eclipse.equinox.launcher.Main.basicRun([Ljava/lang/String;)V+159
+j  org.eclipse.equinox.launcher.Main.run([Ljava/lang/String;)I+4
+j  org.eclipse.equinox.launcher.Main.main([Ljava/lang/String;)V+10
+v  ~StubRoutines::call_stub
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x0000000000000000
+
+Register to memory mapping:
+
+RAX=0x0 is NULL
+RBX=0x00007f8ff1232090 points into unknown readable memory: 00 00 00 00 00 00 00 00
+RCX=0x00007f8ff123d800 points into unknown readable memory: 61 00 23 f1 8f 7f 00 00
+RDX=0x00007f8ff123d800 points into unknown readable memory: 61 00 23 f1 8f 7f 00 00
+RSP=0x00007f8ff73bcff0 is pointing into the stack for thread: 0x00007f8ff0028800
+RBP=0x00007f8ff03b1280 points into unknown readable memory: a0 22 5c f0 8f 7f 00 00
+RSI=0x00007f8ff0000030 points into unknown readable memory: 00 00 00 00 00 00 00 00
+RDI=0x00007f8ff123c410 points into unknown readable memory: e0 00 00 f0 8f 7f 00 00
+R8 =0x0 is NULL
+R9 =0x00007f8ff67638b0: <offset 0x00000000003ed8b0> in /lib/x86_64-linux-gnu/libc.so.6 at 0x00007f8ff6376000
+R10=0x000000000000000a is an unknown value
+R11=0x0 is NULL
+R12=0x0 is NULL
+R13=0x00007f8ff123c410 points into unknown readable memory: e0 00 00 f0 8f 7f 00 00
+R14=0x00007f8ff12395b0 points into unknown readable memory: 00 00 00 00 8f 7f 00 00
+R15=0x00007f8ff119b240 points into unknown readable memory: 90 15 24 f1 8f 7f 00 00
+
+
+Registers:
+RAX=0x0000000000000000, RBX=0x00007f8ff1232090, RCX=0x00007f8ff123d800, RDX=0x00007f8ff123d800
+RSP=0x00007f8ff73bcff0, RBP=0x00007f8ff03b1280, RSI=0x00007f8ff0000030, RDI=0x00007f8ff123c410
+R8 =0x0000000000000000, R9 =0x00007f8ff67638b0, R10=0x000000000000000a, R11=0x0000000000000000
+R12=0x0000000000000000, R13=0x00007f8ff123c410, R14=0x00007f8ff12395b0, R15=0x00007f8ff119b240
+RIP=0x00007f8f9c82990f, EFLAGS=0x0000000000010206, CSGSFS=0x002b000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007f8ff73bcff0)
+0x00007f8ff73bcff0:   00007f8ff123d830 00007f8ff5709fb9
+0x00007f8ff73bd000:   00007f8f53d41d80 00007f8ff73bd0a0
+0x00007f8ff73bd010:   00007f8ff73e1000 00007f8ff0028800
+0x00007f8ff73bd020:   0000000000000000 0000000000000000 
+
+Instructions: (pc=0x00007f8f9c82990f)
+0x00007f8f9c82980f:   95 00 00 00 bf 20 00 00 00 41 c7 47 30 04 00 00
+0x00007f8f9c82981f:   00 e8 3b ca ff ff 48 8d 35 98 62 00 00 48 89 c5
+0x00007f8f9c82982f:   ba 01 00 00 00 4c 89 ff 49 89 47 28 e8 c0 f5 ff
+0x00007f8f9c82983f:   ff 48 89 45 00 49 8b 6f 28 48 8d 35 64 62 00 00
+0x00007f8f9c82984f:   ba 01 00 00 00 4c 89 ff e8 a4 f5 ff ff 48 89 45
+0x00007f8f9c82985f:   08 49 8b 6f 28 48 8d 35 52 62 00 00 ba 01 00 00
+0x00007f8f9c82986f:   00 4c 89 ff e8 88 f5 ff ff 48 89 45 10 49 8b 6f
+0x00007f8f9c82987f:   28 48 8d 35 31 62 00 00 ba 01 00 00 00 4c 89 ff
+0x00007f8f9c82988f:   e8 6c f5 ff ff 48 89 45 18 41 8b 47 30 e9 14 ff
+0x00007f8f9c82989f:   ff ff 0f 1f 80 00 00 00 00 48 8d 15 1d 62 00 00
+0x00007f8f9c8298af:   48 8d 35 1c 62 00 00 48 8d 3d 49 66 00 00 31 c9
+0x00007f8f9c8298bf:   31 c0 e8 ca cc ff ff 49 8b 4f 20 48 8d 35 9f 61
+0x00007f8f9c8298cf:   00 00 45 31 c0 49 89 c5 31 ff ba 03 00 00 00 31
+0x00007f8f9c8298df:   c0 e8 7b d2 ff ff 48 8b 7d 58 4c 89 ea 48 89 c6
+0x00007f8f9c8298ef:   48 89 04 24 e8 38 ca ff ff 48 8b 0c 24 49 89 c4
+0x00007f8f9c8298ff:   48 89 cf e8 09 d8 ff ff 4c 89 ef e8 21 d1 ff ff
+0x00007f8f9c82990f:   41 8b 04 24 be 08 00 00 00 8d 78 03 48 63 ff e8
+0x00007f8f9c82991f:   6d d1 ff ff 45 8b 04 24 48 89 04 24 45 85 c0 0f
+0x00007f8f9c82992f:   8e 80 02 00 00 48 8d 44 24 48 31 c9 4c 89 74 24
+0x00007f8f9c82993f:   38 31 ed c7 44 24 0c 00 00 00 00 c7 44 24 10 00
+0x00007f8f9c82994f:   00 00 00 48 89 44 24 18 48 8d 44 24 4c c7 44 24
+0x00007f8f9c82995f:   14 00 00 00 00 48 89 5c 24 30 41 89 ce 48 89 44
+0x00007f8f9c82996f:   24 20 48 8d 44 24 50 48 89 44 24 28 eb 69 0f 1f
+0x00007f8f9c82997f:   00 48 8b 74 24 50 83 7c 24 48 64 8b 44 24 4c b9
+0x00007f8f9c82998f:   01 00 00 00 0f 8f e7 00 00 00 85 c0 48 8d 15 22
+0x00007f8f9c82999f:   61 00 00 48 8d 1d 14 61 00 00 44 0f 44 f1 0f 44
+0x00007f8f9c8299af:   4c 24 10 48 0f 45 d3 89 4c 24 10 48 85 f6 0f 84
+0x00007f8f9c8299bf:   ed 00 00 00 31 d2 4c 89 ff 8d 5d 01 e8 30 f4 ff
+0x00007f8f9c8299cf:   ff 48 8b 0c 24 48 89 04 e9 48 83 c5 01 41 3b 1c
+0x00007f8f9c8299df:   24 0f 8d da 00 00 00 49 8b 44 24 08 48 8b 4c 24
+0x00007f8f9c8299ef:   18 48 8d 35 db 60 00 00 31 d2 48 c7 44 24 50 00
+0x00007f8f9c8299ff:   00 00 00 41 89 ed 48 8d 1c ed 00 00 00 00 48 8b 
+
+
+Stack slot to memory mapping:
+stack at sp + 0 slots: 0x00007f8ff123d830 points into unknown readable memory: 20 76 23 f1 8f 7f 00 00
+stack at sp + 1 slots: 0x00007f8ff5709fb9: <offset 0x0000000000938fb9> in /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/server/libjvm.so at 0x00007f8ff4dd1000
+stack at sp + 2 slots: {method} {0x00007f8f53d41d80} 'memmove' '([CJJ)V' in 'org/eclipse/swt/internal/C'
+stack at sp + 3 slots: 0x00007f8ff73bd0a0 is pointing into the stack for thread: 0x00007f8ff0028800
+stack at sp + 4 slots: 0x00007f8ff73e1000 points into unknown readable memory: 00 00 00 00 00 00 00 00
+stack at sp + 5 slots: 0x00007f8ff0028800 is a thread
+stack at sp + 6 slots: 0x0 is NULL
+stack at sp + 7 slots: 0x0 is NULL
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007f8f5c019130, length=31, elements={
+0x00007f8ff0028800, 0x00007f8ff016f800, 0x00007f8ff0171800, 0x00007f8ff0191000,
+0x00007f8ff0193000, 0x00007f8ff0195000, 0x00007f8ff0199000, 0x00007f8ff0216000,
+0x00007f8ff0220000, 0x00007f8ff0865800, 0x00007f8f88001800, 0x00007f8ff0867800,
+0x00007f8ff088a000, 0x00007f8ff0896800, 0x00007f8ff08c7800, 0x00007f8ff08c9000,
+0x00007f8ff08d9800, 0x00007f8ff0bed000, 0x00007f8f7002e000, 0x00007f8f700c2000,
+0x00007f8ff0c7e800, 0x00007f8ff0c99800, 0x00007f8f5c013800, 0x00007f8f5c015000,
+0x00007f8ff0d6d800, 0x00007f8ff0aba800, 0x00007f8ff0abb000, 0x00007f8ff0d75800,
+0x00007f8ff0e49800, 0x00007f8fa80d9800, 0x00007f8f5c01a000
+}
+
+Java Threads: ( => current thread )
+=>0x00007f8ff0028800 JavaThread "main" [_thread_in_native, id=376563, stack(0x00007f8ff72bf000,0x00007f8ff73c0000)]
+  0x00007f8ff016f800 JavaThread "Reference Handler" daemon [_thread_blocked, id=376570, stack(0x00007f8fcd3f9000,0x00007f8fcd4fa000)]
+  0x00007f8ff0171800 JavaThread "Finalizer" daemon [_thread_blocked, id=376571, stack(0x00007f8fcd2f8000,0x00007f8fcd3f9000)]
+  0x00007f8ff0191000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=376572, stack(0x00007f8fcd0c7000,0x00007f8fcd1c8000)]
+  0x00007f8ff0193000 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=376573, stack(0x00007f8fccfc6000,0x00007f8fcd0c7000)]
+  0x00007f8ff0195000 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=376574, stack(0x00007f8fccec5000,0x00007f8fccfc6000)]
+  0x00007f8ff0199000 JavaThread "Sweeper thread" daemon [_thread_blocked, id=376575, stack(0x00007f8fccdc4000,0x00007f8fccec5000)]
+  0x00007f8ff0216000 JavaThread "Service Thread" daemon [_thread_blocked, id=376576, stack(0x00007f8fcccc3000,0x00007f8fccdc4000)]
+  0x00007f8ff0220000 JavaThread "Common-Cleaner" daemon [_thread_blocked, id=376578, stack(0x00007f8fccac0000,0x00007f8fccbc1000)]
+  0x00007f8ff0865800 JavaThread "Equinox resolver thread - Equinox Container: 7533e017-a740-4259-a706-c002d3bfc47f" daemon [_thread_blocked, id=376581, stack(0x00007f8f91e0b000,0x00007f8f91f0c000)]
+  0x00007f8f88001800 JavaThread "Equinox resolver thread - Equinox Container: 7533e017-a740-4259-a706-c002d3bfc47f" daemon [_thread_blocked, id=376582, stack(0x00007f8f91d0a000,0x00007f8f91e0b000)]
+  0x00007f8ff0867800 JavaThread "Equinox resolver thread - Equinox Container: 7533e017-a740-4259-a706-c002d3bfc47f" daemon [_thread_blocked, id=376583, stack(0x00007f8f91c09000,0x00007f8f91d0a000)]
+  0x00007f8ff088a000 JavaThread "Equinox resolver thread - Equinox Container: 7533e017-a740-4259-a706-c002d3bfc47f" daemon [_thread_blocked, id=376584, stack(0x00007f8f91b08000,0x00007f8f91c09000)]
+  0x00007f8ff0896800 JavaThread "Active Thread: Equinox Container: 7533e017-a740-4259-a706-c002d3bfc47f" [_thread_blocked, id=376585, stack(0x00007f8f91a07000,0x00007f8f91b08000)]
+  0x00007f8ff08c7800 JavaThread "Framework Event Dispatcher: Equinox Container: 7533e017-a740-4259-a706-c002d3bfc47f" daemon [_thread_blocked, id=376586, stack(0x00007f8f91906000,0x00007f8f91a07000)]
+  0x00007f8ff08c9000 JavaThread "Start Level: Equinox Container: 7533e017-a740-4259-a706-c002d3bfc47f" daemon [_thread_blocked, id=376587, stack(0x00007f8f91805000,0x00007f8f91906000)]
+  0x00007f8ff08d9800 JavaThread "Refresh Thread: Equinox Container: 7533e017-a740-4259-a706-c002d3bfc47f" daemon [_thread_blocked, id=376588, stack(0x00007f8f91704000,0x00007f8f91805000)]
+  0x00007f8ff0bed000 JavaThread "Bundle File Closer" daemon [_thread_blocked, id=376590, stack(0x00007f8f9c05e000,0x00007f8f9c15f000)]
+  0x00007f8f7002e000 JavaThread "SCR Component Actor" daemon [_thread_blocked, id=376600, stack(0x00007f8f9026e000,0x00007f8f9036f000)]
+  0x00007f8f700c2000 JavaThread "Timer-0" daemon [_thread_blocked, id=376601, stack(0x00007f8f90423000,0x00007f8f90524000)]
+  0x00007f8ff0c7e800 JavaThread "Worker-JM" [_thread_blocked, id=376606, stack(0x00007f8f905f8000,0x00007f8f906f9000)]
+  0x00007f8ff0c99800 JavaThread "Worker-0" [_thread_blocked, id=376607, stack(0x00007f8f533ff000,0x00007f8f53500000)]
+  0x00007f8f5c013800 JavaThread "Database navigator events processor" [_thread_blocked, id=376608, stack(0x00007f8f52cfb000,0x00007f8f52dfc000)]
+  0x00007f8f5c015000 JavaThread "Worker-2" [_thread_blocked, id=376609, stack(0x00007f8f52bfa000,0x00007f8f52cfb000)]
+  0x00007f8ff0d6d800 JavaThread "RMI TCP Accept-25754" daemon [_thread_in_native, id=376616, stack(0x00007f8f909ff000,0x00007f8f90b00000)]
+  0x00007f8ff0aba800 JavaThread "RMI TCP Accept-0" daemon [_thread_in_native, id=376617, stack(0x00007f8f91000000,0x00007f8f91101000)]
+  0x00007f8ff0abb000 JavaThread "RMI Reaper" [_thread_blocked, id=376618, stack(0x00007f8f4fe6e000,0x00007f8f4ff6f000)]
+  0x00007f8ff0d75800 JavaThread "RMI GC Daemon" daemon [_thread_blocked, id=376619, stack(0x00007f8f4fb6b000,0x00007f8f4fc6c000)]
+  0x00007f8ff0e49800 JavaThread "EMF Reference Cleaner" daemon [_thread_blocked, id=376620, stack(0x00007f8f4f86a000,0x00007f8f4f96b000)]
+  0x00007f8fa80d9800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=376622, stack(0x00007f8f4f569000,0x00007f8f4f66a000)]
+  0x00007f8f5c01a000 JavaThread "Worker-3" [_thread_blocked, id=376623, stack(0x00007f8f91603000,0x00007f8f91704000)]
+
+Other Threads:
+  0x00007f8ff0166800 VMThread "VM Thread" [stack: 0x00007f8fcd4fc000,0x00007f8fcd5fc000] [id=376569]
+  0x00007f8ff0218800 WatcherThread [stack: 0x00007f8fccbc3000,0x00007f8fcccc3000] [id=376577]
+  0x00007f8ff0040000 GCTaskThread "GC Thread#0" [stack: 0x00007f8fdf079000,0x00007f8fdf179000] [id=376564]
+  0x00007f8fc4001000 GCTaskThread "GC Thread#1" [stack: 0x00007f8f9210e000,0x00007f8f9220e000] [id=376580]
+  0x00007f8fc4003800 GCTaskThread "GC Thread#2" [stack: 0x00007f8f90c04000,0x00007f8f90d04000] [id=376591]
+  0x00007f8fc4005000 GCTaskThread "GC Thread#3" [stack: 0x00007f8f90b02000,0x00007f8f90c02000] [id=376592]
+  0x00007f8ff005c000 ConcurrentGCThread "G1 Main Marker" [stack: 0x00007f8fdc573000,0x00007f8fdc673000] [id=376565]
+  0x00007f8ff005d800 ConcurrentGCThread "G1 Conc#0" [stack: 0x00007f8fdc471000,0x00007f8fdc571000] [id=376566]
+  0x00007f8ff00a3000 ConcurrentGCThread "G1 Refine#0" [stack: 0x00007f8fcdf00000,0x00007f8fce000000] [id=376567]
+  0x00007f8fc8001800 ConcurrentGCThread "G1 Refine#1" [stack: 0x00007f8f908ff000,0x00007f8f909ff000] [id=376597]
+  0x00007f8f54001000 ConcurrentGCThread "G1 Refine#2" [stack: 0x00007f8f907fd000,0x00007f8f908fd000] [id=376598]
+  0x00007f8f58001000 ConcurrentGCThread "G1 Refine#3" [stack: 0x00007f8f906fb000,0x00007f8f907fb000] [id=376599]
+  0x00007f8ff00a5000 ConcurrentGCThread "G1 Young RemSet Sampling" [stack: 0x00007f8fcddfe000,0x00007f8fcdefe000] [id=376568]
+
+Threads with active compile tasks:
+C2 CompilerThread0  14246 4506   !   4       org.eclipse.osgi.internal.loader.classpath.ClasspathManager::findLocalClass (210 bytes)
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap address: 0x00000000c0000000, size: 1024 MB, Compressed Oops mode: 32-bit
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x0000000100000000
+
+Heap:
+ garbage-first heap   total 95232K, used 29270K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 3 young (3072K), 1 survivors (1024K)
+ Metaspace       used 37297K, capacity 40281K, committed 40576K, reserved 1085440K
+  class space    used 4165K, capacity 5185K, committed 5248K, reserved 1048576K
+Heap Regions: E=young(eden), S=young(survivor), O=old, HS=humongous(starts), HC=humongous(continues), CS=collection set, F=free, A=archive, TAMS=top-at-mark-start (previous, next)
+|   0|0x00000000c0000000, 0x00000000c0100000, 0x00000000c0100000|100%| O|  |TAMS 0x00000000c0100000, 0x00000000c0000000| Untracked 
+|   1|0x00000000c0100000, 0x00000000c0200000, 0x00000000c0200000|100%| O|  |TAMS 0x00000000c0200000, 0x00000000c0100000| Untracked 
+|   2|0x00000000c0200000, 0x00000000c0300000, 0x00000000c0300000|100%| O|  |TAMS 0x00000000c0300000, 0x00000000c0200000| Untracked 
+|   3|0x00000000c0300000, 0x00000000c0400000, 0x00000000c0400000|100%| O|  |TAMS 0x00000000c0400000, 0x00000000c0300000| Untracked 
+|   4|0x00000000c0400000, 0x00000000c0500000, 0x00000000c0500000|100%| O|  |TAMS 0x00000000c0500000, 0x00000000c0400000| Untracked 
+|   5|0x00000000c0500000, 0x00000000c0600000, 0x00000000c0600000|100%| O|  |TAMS 0x00000000c0600000, 0x00000000c0500000| Untracked 
+|   6|0x00000000c0600000, 0x00000000c0700000, 0x00000000c0700000|100%| O|  |TAMS 0x00000000c0700000, 0x00000000c0600000| Untracked 
+|   7|0x00000000c0700000, 0x00000000c0800000, 0x00000000c0800000|100%| O|  |TAMS 0x00000000c0800000, 0x00000000c0700000| Untracked 
+|   8|0x00000000c0800000, 0x00000000c0900000, 0x00000000c0900000|100%| O|  |TAMS 0x00000000c0900000, 0x00000000c0800000| Untracked 
+|   9|0x00000000c0900000, 0x00000000c0a00000, 0x00000000c0a00000|100%| O|  |TAMS 0x00000000c0a00000, 0x00000000c0900000| Untracked 
+|  10|0x00000000c0a00000, 0x00000000c0b00000, 0x00000000c0b00000|100%| O|  |TAMS 0x00000000c0b00000, 0x00000000c0a00000| Untracked 
+|  11|0x00000000c0b00000, 0x00000000c0c00000, 0x00000000c0c00000|100%| O|  |TAMS 0x00000000c0c00000, 0x00000000c0b00000| Untracked 
+|  12|0x00000000c0c00000, 0x00000000c0c00000, 0x00000000c0d00000|  0%| F|  |TAMS 0x00000000c0c00000, 0x00000000c0c00000| Untracked 
+|  13|0x00000000c0d00000, 0x00000000c0e00000, 0x00000000c0e00000|100%| O|  |TAMS 0x00000000c0e00000, 0x00000000c0d00000| Untracked 
+|  14|0x00000000c0e00000, 0x00000000c0f00000, 0x00000000c0f00000|100%| O|  |TAMS 0x00000000c0f00000, 0x00000000c0e00000| Untracked 
+|  15|0x00000000c0f00000, 0x00000000c1000000, 0x00000000c1000000|100%| O|  |TAMS 0x00000000c1000000, 0x00000000c0f00000| Untracked 
+|  16|0x00000000c1000000, 0x00000000c1100000, 0x00000000c1100000|100%| O|  |TAMS 0x00000000c100a000, 0x00000000c1000000| Untracked 
+|  17|0x00000000c1100000, 0x00000000c1200000, 0x00000000c1200000|100%| O|  |TAMS 0x00000000c1100000, 0x00000000c1100000| Untracked 
+|  18|0x00000000c1200000, 0x00000000c1300000, 0x00000000c1300000|100%| O|  |TAMS 0x00000000c1200000, 0x00000000c1200000| Untracked 
+|  19|0x00000000c1300000, 0x00000000c1400000, 0x00000000c1400000|100%| O|  |TAMS 0x00000000c1300000, 0x00000000c1300000| Untracked 
+|  20|0x00000000c1400000, 0x00000000c1500000, 0x00000000c1500000|100%| O|  |TAMS 0x00000000c1400000, 0x00000000c1400000| Untracked 
+|  21|0x00000000c1500000, 0x00000000c15f4400, 0x00000000c1600000| 95%| O|  |TAMS 0x00000000c1500000, 0x00000000c1500000| Untracked 
+|  22|0x00000000c1600000, 0x00000000c1600000, 0x00000000c1700000|  0%| F|  |TAMS 0x00000000c1600000, 0x00000000c1600000| Untracked 
+|  23|0x00000000c1700000, 0x00000000c1700000, 0x00000000c1800000|  0%| F|  |TAMS 0x00000000c1700000, 0x00000000c1700000| Untracked 
+|  24|0x00000000c1800000, 0x00000000c1900000, 0x00000000c1900000|100%| O|  |TAMS 0x00000000c1800000, 0x00000000c1800000| Untracked 
+|  25|0x00000000c1900000, 0x00000000c1900000, 0x00000000c1a00000|  0%| F|  |TAMS 0x00000000c1900000, 0x00000000c1900000| Untracked 
+|  26|0x00000000c1a00000, 0x00000000c1a00000, 0x00000000c1b00000|  0%| F|  |TAMS 0x00000000c1a00000, 0x00000000c1a00000| Untracked 
+|  27|0x00000000c1b00000, 0x00000000c1b00000, 0x00000000c1c00000|  0%| F|  |TAMS 0x00000000c1b00000, 0x00000000c1b00000| Untracked 
+|  28|0x00000000c1c00000, 0x00000000c1d00000, 0x00000000c1d00000|100%| O|  |TAMS 0x00000000c1d00000, 0x00000000c1c00000| Untracked 
+|  29|0x00000000c1d00000, 0x00000000c1e00000, 0x00000000c1e00000|100%| O|  |TAMS 0x00000000c1e00000, 0x00000000c1d00000| Untracked 
+|  30|0x00000000c1e00000, 0x00000000c1e00000, 0x00000000c1f00000|  0%| F|  |TAMS 0x00000000c1e00000, 0x00000000c1e00000| Untracked 
+|  31|0x00000000c1f00000, 0x00000000c1f00000, 0x00000000c2000000|  0%| F|  |TAMS 0x00000000c1f00000, 0x00000000c1f00000| Untracked 
+|  32|0x00000000c2000000, 0x00000000c2000000, 0x00000000c2100000|  0%| F|  |TAMS 0x00000000c2000000, 0x00000000c2000000| Untracked 
+|  33|0x00000000c2100000, 0x00000000c2100000, 0x00000000c2200000|  0%| F|  |TAMS 0x00000000c2100000, 0x00000000c2100000| Untracked 
+|  34|0x00000000c2200000, 0x00000000c2300000, 0x00000000c2300000|100%| O|  |TAMS 0x00000000c2300000, 0x00000000c2200000| Untracked 
+|  35|0x00000000c2300000, 0x00000000c2400000, 0x00000000c2400000|100%| O|  |TAMS 0x00000000c2400000, 0x00000000c2300000| Untracked 
+|  36|0x00000000c2400000, 0x00000000c2400000, 0x00000000c2500000|  0%| F|  |TAMS 0x00000000c2400000, 0x00000000c2400000| Untracked 
+|  37|0x00000000c2500000, 0x00000000c2600000, 0x00000000c2600000|100%| O|  |TAMS 0x00000000c2600000, 0x00000000c2500000| Untracked 
+|  38|0x00000000c2600000, 0x00000000c2600000, 0x00000000c2700000|  0%| F|  |TAMS 0x00000000c2600000, 0x00000000c2600000| Untracked 
+|  39|0x00000000c2700000, 0x00000000c2700000, 0x00000000c2800000|  0%| F|  |TAMS 0x00000000c2700000, 0x00000000c2700000| Untracked 
+|  40|0x00000000c2800000, 0x00000000c2800000, 0x00000000c2900000|  0%| F|  |TAMS 0x00000000c2800000, 0x00000000c2800000| Untracked 
+|  41|0x00000000c2900000, 0x00000000c2900000, 0x00000000c2a00000|  0%| F|  |TAMS 0x00000000c2900000, 0x00000000c2900000| Untracked 
+|  42|0x00000000c2a00000, 0x00000000c2a00000, 0x00000000c2b00000|  0%| F|  |TAMS 0x00000000c2a00000, 0x00000000c2a00000| Untracked 
+|  43|0x00000000c2b00000, 0x00000000c2b00000, 0x00000000c2c00000|  0%| F|  |TAMS 0x00000000c2b00000, 0x00000000c2b00000| Untracked 
+|  44|0x00000000c2c00000, 0x00000000c2c00000, 0x00000000c2d00000|  0%| F|  |TAMS 0x00000000c2c00000, 0x00000000c2c00000| Untracked 
+|  45|0x00000000c2d00000, 0x00000000c2d00000, 0x00000000c2e00000|  0%| F|  |TAMS 0x00000000c2d00000, 0x00000000c2d00000| Untracked 
+|  46|0x00000000c2e00000, 0x00000000c2e00000, 0x00000000c2f00000|  0%| F|  |TAMS 0x00000000c2e00000, 0x00000000c2e00000| Untracked 
+|  47|0x00000000c2f00000, 0x00000000c2f00000, 0x00000000c3000000|  0%| F|  |TAMS 0x00000000c2f00000, 0x00000000c2f00000| Untracked 
+|  48|0x00000000c3000000, 0x00000000c3000000, 0x00000000c3100000|  0%| F|  |TAMS 0x00000000c3000000, 0x00000000c3000000| Untracked 
+|  49|0x00000000c3100000, 0x00000000c3100000, 0x00000000c3200000|  0%| F|  |TAMS 0x00000000c3100000, 0x00000000c3100000| Untracked 
+|  50|0x00000000c3200000, 0x00000000c3200000, 0x00000000c3300000|  0%| F|  |TAMS 0x00000000c3200000, 0x00000000c3200000| Untracked 
+|  51|0x00000000c3300000, 0x00000000c3300000, 0x00000000c3400000|  0%| F|  |TAMS 0x00000000c3300000, 0x00000000c3300000| Untracked 
+|  52|0x00000000c3400000, 0x00000000c3400000, 0x00000000c3500000|  0%| F|  |TAMS 0x00000000c3400000, 0x00000000c3400000| Untracked 
+|  53|0x00000000c3500000, 0x00000000c3500000, 0x00000000c3600000|  0%| F|  |TAMS 0x00000000c3500000, 0x00000000c3500000| Untracked 
+|  54|0x00000000c3600000, 0x00000000c3600000, 0x00000000c3700000|  0%| F|  |TAMS 0x00000000c3600000, 0x00000000c3600000| Untracked 
+|  55|0x00000000c3700000, 0x00000000c3700000, 0x00000000c3800000|  0%| F|  |TAMS 0x00000000c3700000, 0x00000000c3700000| Untracked 
+|  56|0x00000000c3800000, 0x00000000c3800000, 0x00000000c3900000|  0%| F|  |TAMS 0x00000000c3800000, 0x00000000c3800000| Untracked 
+|  57|0x00000000c3900000, 0x00000000c3900000, 0x00000000c3a00000|  0%| F|  |TAMS 0x00000000c3900000, 0x00000000c3900000| Untracked 
+|  58|0x00000000c3a00000, 0x00000000c3a00000, 0x00000000c3b00000|  0%| F|  |TAMS 0x00000000c3a00000, 0x00000000c3a00000| Untracked 
+|  59|0x00000000c3b00000, 0x00000000c3b00000, 0x00000000c3c00000|  0%| F|  |TAMS 0x00000000c3b00000, 0x00000000c3b00000| Untracked 
+|  60|0x00000000c3c00000, 0x00000000c3c00000, 0x00000000c3d00000|  0%| F|  |TAMS 0x00000000c3c00000, 0x00000000c3c00000| Untracked 
+|  61|0x00000000c3d00000, 0x00000000c3d00000, 0x00000000c3e00000|  0%| F|  |TAMS 0x00000000c3d00000, 0x00000000c3d00000| Untracked 
+|  62|0x00000000c3e00000, 0x00000000c3e00000, 0x00000000c3f00000|  0%| F|  |TAMS 0x00000000c3e00000, 0x00000000c3e00000| Untracked 
+|  63|0x00000000c3f00000, 0x00000000c3f00000, 0x00000000c4000000|  0%| F|  |TAMS 0x00000000c3f00000, 0x00000000c3f00000| Untracked 
+|  64|0x00000000c4000000, 0x00000000c4000000, 0x00000000c4100000|  0%| F|  |TAMS 0x00000000c4000000, 0x00000000c4000000| Untracked 
+|  65|0x00000000c4100000, 0x00000000c4100000, 0x00000000c4200000|  0%| F|  |TAMS 0x00000000c4100000, 0x00000000c4100000| Untracked 
+|  66|0x00000000c4200000, 0x00000000c4200000, 0x00000000c4300000|  0%| F|  |TAMS 0x00000000c4200000, 0x00000000c4200000| Untracked 
+|  67|0x00000000c4300000, 0x00000000c4300000, 0x00000000c4400000|  0%| F|  |TAMS 0x00000000c4300000, 0x00000000c4300000| Untracked 
+|  68|0x00000000c4400000, 0x00000000c4400000, 0x00000000c4500000|  0%| F|  |TAMS 0x00000000c4400000, 0x00000000c4400000| Untracked 
+|  69|0x00000000c4500000, 0x00000000c4500000, 0x00000000c4600000|  0%| F|  |TAMS 0x00000000c4500000, 0x00000000c4500000| Untracked 
+|  70|0x00000000c4600000, 0x00000000c4600000, 0x00000000c4700000|  0%| F|  |TAMS 0x00000000c4600000, 0x00000000c4600000| Untracked 
+|  71|0x00000000c4700000, 0x00000000c4700000, 0x00000000c4800000|  0%| F|  |TAMS 0x00000000c4700000, 0x00000000c4700000| Untracked 
+|  72|0x00000000c4800000, 0x00000000c4800000, 0x00000000c4900000|  0%| F|  |TAMS 0x00000000c4800000, 0x00000000c4800000| Untracked 
+|  73|0x00000000c4900000, 0x00000000c4900000, 0x00000000c4a00000|  0%| F|  |TAMS 0x00000000c4900000, 0x00000000c4900000| Untracked 
+|  74|0x00000000c4a00000, 0x00000000c4a00000, 0x00000000c4b00000|  0%| F|  |TAMS 0x00000000c4a00000, 0x00000000c4a00000| Untracked 
+|  75|0x00000000c4b00000, 0x00000000c4b00000, 0x00000000c4c00000|  0%| F|  |TAMS 0x00000000c4b00000, 0x00000000c4b00000| Untracked 
+|  76|0x00000000c4c00000, 0x00000000c4c00000, 0x00000000c4d00000|  0%| F|  |TAMS 0x00000000c4c00000, 0x00000000c4c00000| Untracked 
+|  77|0x00000000c4d00000, 0x00000000c4d00000, 0x00000000c4e00000|  0%| F|  |TAMS 0x00000000c4d00000, 0x00000000c4d00000| Untracked 
+|  78|0x00000000c4e00000, 0x00000000c4e00000, 0x00000000c4f00000|  0%| F|  |TAMS 0x00000000c4e00000, 0x00000000c4e00000| Untracked 
+|  79|0x00000000c4f00000, 0x00000000c4f00000, 0x00000000c5000000|  0%| F|  |TAMS 0x00000000c4f00000, 0x00000000c4f00000| Untracked 
+|  80|0x00000000c5000000, 0x00000000c5000000, 0x00000000c5100000|  0%| F|  |TAMS 0x00000000c5000000, 0x00000000c5000000| Untracked 
+|  81|0x00000000c5100000, 0x00000000c5100000, 0x00000000c5200000|  0%| F|  |TAMS 0x00000000c5100000, 0x00000000c5100000| Untracked 
+|  82|0x00000000c5200000, 0x00000000c5200000, 0x00000000c5300000|  0%| F|  |TAMS 0x00000000c5200000, 0x00000000c5200000| Untracked 
+|  83|0x00000000c5300000, 0x00000000c5300000, 0x00000000c5400000|  0%| F|  |TAMS 0x00000000c5300000, 0x00000000c5300000| Untracked 
+|  84|0x00000000c5400000, 0x00000000c5400000, 0x00000000c5500000|  0%| F|  |TAMS 0x00000000c5400000, 0x00000000c5400000| Untracked 
+|  85|0x00000000c5500000, 0x00000000c5500000, 0x00000000c5600000|  0%| F|  |TAMS 0x00000000c5500000, 0x00000000c5500000| Untracked 
+|  86|0x00000000c5600000, 0x00000000c5600000, 0x00000000c5700000|  0%| F|  |TAMS 0x00000000c5600000, 0x00000000c5600000| Untracked 
+|  87|0x00000000c5700000, 0x00000000c5700000, 0x00000000c5800000|  0%| F|  |TAMS 0x00000000c5700000, 0x00000000c5700000| Untracked 
+|  88|0x00000000c5800000, 0x00000000c5800000, 0x00000000c5900000|  0%| F|  |TAMS 0x00000000c5800000, 0x00000000c5800000| Untracked 
+|  89|0x00000000c5900000, 0x00000000c5900000, 0x00000000c5a00000|  0%| F|  |TAMS 0x00000000c5900000, 0x00000000c5900000| Untracked 
+|  90|0x00000000c5a00000, 0x00000000c5a577e0, 0x00000000c5b00000| 34%| E|  |TAMS 0x00000000c5a00000, 0x00000000c5a00000| Complete 
+|  91|0x00000000c5b00000, 0x00000000c5ba1440, 0x00000000c5c00000| 62%| S|CS|TAMS 0x00000000c5b00000, 0x00000000c5b00000| Complete 
+|  92|0x00000000c5c00000, 0x00000000c5d00000, 0x00000000c5d00000|100%| E|CS|TAMS 0x00000000c5c00000, 0x00000000c5c00000| Complete 
+
+Card table byte_map: [0x00007f8fde873000,0x00007f8fdea73000] _byte_map_base: 0x00007f8fde273000
+
+Marking Bits (Prev, Next): (CMBitMap*) 0x00007f8ff0056fc0, (CMBitMap*) 0x00007f8ff0056f88
+ Prev Bits: [0x00007f8fdc673000, 0x00007f8fdd673000)
+ Next Bits: [0x00007f8fdd673000, 0x00007f8fde673000)
+
+Polling page: 0x00007f8ff73e0000
+
+Metaspace:
+
+Usage:
+  Non-class:     34,27 MB capacity,    32,36 MB ( 94%) used,     1,84 MB (  5%) free+waste,    84,31 KB ( <1%) overhead. 
+      Class:      5,06 MB capacity,     4,07 MB ( 80%) used,   974,52 KB ( 19%) free+waste,    44,56 KB ( <1%) overhead. 
+       Both:     39,34 MB capacity,    36,42 MB ( 93%) used,     2,79 MB (  7%) free+waste,   128,88 KB ( <1%) overhead. 
+
+Virtual space:
+  Non-class space:       36,00 MB reserved,      34,50 MB ( 96%) committed 
+      Class space:        1,00 GB reserved,       5,12 MB ( <1%) committed 
+             Both:        1,04 GB reserved,      39,62 MB (  4%) committed 
+
+Chunk freelists:
+   Non-Class:  60,00 KB
+       Class:  0 bytes
+        Both:  60,00 KB
+
+MaxMetaspaceSize: unlimited
+CompressedClassSpaceSize: 1,00 GB
+
+CodeHeap 'non-profiled nmethods': size=120032Kb used=2256Kb max_used=2256Kb free=117776Kb
+ bounds [0x00007f8fe6d2c000, 0x00007f8fe6f9c000, 0x00007f8fee264000]
+CodeHeap 'profiled nmethods': size=120032Kb used=10257Kb max_used=10257Kb free=109774Kb
+ bounds [0x00007f8fdf7f4000, 0x00007f8fe0204000, 0x00007f8fe6d2c000]
+CodeHeap 'non-nmethods': size=5696Kb used=1240Kb max_used=1282Kb free=4455Kb
+ bounds [0x00007f8fdf264000, 0x00007f8fdf4d4000, 0x00007f8fdf7f4000]
+ total_blobs=5092 nmethods=4425 adapters=579
+ compilation: enabled
+              stopped_count=0, restarted_count=0
+ full_count=0
+
+Compilation events (20 events):
+Event: 14,183 Thread 0x00007f8ff0195000 nmethod 4765 0x00007f8fe01f7190 code [0x00007f8fe01f7380, 0x00007f8fe01f79c0]
+Event: 14,183 Thread 0x00007f8ff0195000 4763       1       org.eclipse.ui.internal.themes.ThemeElementCategory::getId (5 bytes)
+Event: 14,183 Thread 0x00007f8ff0195000 nmethod 4763 0x00007f8fe6f5de10 code [0x00007f8fe6f5dfc0, 0x00007f8fe6f5e070]
+Event: 14,183 Thread 0x00007f8ff0195000 4761       3       org.eclipse.osgi.internal.framework.EquinoxConfiguration$ConfigValues::getProperty (31 bytes)
+Event: 14,184 Thread 0x00007f8ff0195000 nmethod 4761 0x00007f8fe01f7a90 code [0x00007f8fe01f7dc0, 0x00007f8fe01f8f00]
+Event: 14,184 Thread 0x00007f8ff0195000 4762       3       org.eclipse.osgi.internal.framework.BundleContextImpl::getProperty (25 bytes)
+Event: 14,187 Thread 0x00007f8ff0195000 nmethod 4762 0x00007f8fe01f9410 code [0x00007f8fe01f9660, 0x00007f8fe01f9de0]
+Event: 14,187 Thread 0x00007f8ff0195000 4766       3       java.util.TaskQueue::getMin (7 bytes)
+Event: 14,188 Thread 0x00007f8ff0195000 nmethod 4766 0x00007f8fe01fa110 code [0x00007f8fe01fa2c0, 0x00007f8fe01fa3f0]
+Event: 14,192 Thread 0x00007f8ff0195000 4767       3       java.lang.invoke.MethodHandles$Lookup::lookupModes (8 bytes)
+Event: 14,193 Thread 0x00007f8ff0195000 nmethod 4767 0x00007f8fe01fa510 code [0x00007f8fe01fa6c0, 0x00007f8fe01fa7b0]
+Event: 14,193 Thread 0x00007f8ff0195000 4768       3       java.lang.invoke.MethodHandleNatives::linkCallSite (66 bytes)
+Event: 14,194 Thread 0x00007f8ff0195000 nmethod 4768 0x00007f8fe01fa810 code [0x00007f8fe01faa00, 0x00007f8fe01faf00]
+Event: 14,194 Thread 0x00007f8ff0195000 4769       3       java.lang.invoke.MethodHandleNatives::linkCallSiteImpl (44 bytes)
+Event: 14,194 Thread 0x00007f8ff0195000 nmethod 4769 0x00007f8fe01fb090 code [0x00007f8fe01fb2c0, 0x00007f8fe01fba30]
+Event: 14,195 Thread 0x00007f8ff0195000 4770       3       java.lang.invoke.Invokers::checkExactType (17 bytes)
+Event: 14,195 Thread 0x00007f8ff0195000 nmethod 4770 0x00007f8fe01fbd10 code [0x00007f8fe01fbec0, 0x00007f8fe01fc0a0]
+Event: 14,202 Thread 0x00007f8ff0195000 4771       3       jdk.internal.math.FDBigInteger::mult (64 bytes)
+Event: 14,203 Thread 0x00007f8ff0195000 nmethod 4771 0x00007f8fe01fc190 code [0x00007f8fe01fc360, 0x00007f8fe01fc5b0]
+Event: 14,203 Thread 0x00007f8ff0195000 4772       3       jdk.internal.math.FDBigInteger::<init> (30 bytes)
+
+GC Heap History (20 events):
+Event: 6,794 GC heap before
+{Heap before GC invocations=6 (full 0):
+ garbage-first heap   total 65536K, used 40960K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 11 young (11264K), 1 survivors (1024K)
+ Metaspace       used 14130K, capacity 14386K, committed 14720K, reserved 1062912K
+  class space    used 1365K, capacity 1407K, committed 1408K, reserved 1048576K
+}
+Event: 6,799 GC heap after
+{Heap after GC invocations=7 (full 0):
+ garbage-first heap   total 78848K, used 32768K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 2 young (2048K), 2 survivors (2048K)
+ Metaspace       used 14130K, capacity 14386K, committed 14720K, reserved 1062912K
+  class space    used 1365K, capacity 1407K, committed 1408K, reserved 1048576K
+}
+Event: 6,967 GC heap before
+{Heap before GC invocations=7 (full 0):
+ garbage-first heap   total 78848K, used 48128K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 17 young (17408K), 2 survivors (2048K)
+ Metaspace       used 14156K, capacity 14450K, committed 14720K, reserved 1062912K
+  class space    used 1365K, capacity 1407K, committed 1408K, reserved 1048576K
+}
+Event: 6,980 GC heap after
+{Heap after GC invocations=8 (full 0):
+ garbage-first heap   total 78848K, used 35552K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 3 young (3072K), 3 survivors (3072K)
+ Metaspace       used 14156K, capacity 14450K, committed 14720K, reserved 1062912K
+  class space    used 1365K, capacity 1407K, committed 1408K, reserved 1048576K
+}
+Event: 7,954 GC heap before
+{Heap before GC invocations=9 (full 0):
+ garbage-first heap   total 78848K, used 49888K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 18 young (18432K), 3 survivors (3072K)
+ Metaspace       used 17623K, capacity 18375K, committed 18688K, reserved 1067008K
+  class space    used 1766K, capacity 1975K, committed 2048K, reserved 1048576K
+}
+Event: 7,977 GC heap after
+{Heap after GC invocations=10 (full 0):
+ garbage-first heap   total 78848K, used 38535K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 3 young (3072K), 3 survivors (3072K)
+ Metaspace       used 17623K, capacity 18375K, committed 18688K, reserved 1067008K
+  class space    used 1766K, capacity 1975K, committed 2048K, reserved 1048576K
+}
+Event: 8,418 GC heap before
+{Heap before GC invocations=10 (full 0):
+ garbage-first heap   total 78848K, used 52871K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 18 young (18432K), 3 survivors (3072K)
+ Metaspace       used 17846K, capacity 18641K, committed 18944K, reserved 1067008K
+  class space    used 1767K, capacity 1975K, committed 2048K, reserved 1048576K
+}
+Event: 8,434 GC heap after
+{Heap after GC invocations=11 (full 0):
+ garbage-first heap   total 78848K, used 41231K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 3 young (3072K), 3 survivors (3072K)
+ Metaspace       used 17846K, capacity 18641K, committed 18944K, reserved 1067008K
+  class space    used 1767K, capacity 1975K, committed 2048K, reserved 1048576K
+}
+Event: 8,831 GC heap before
+{Heap before GC invocations=12 (full 0):
+ garbage-first heap   total 78848K, used 36111K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 17 young (17408K), 3 survivors (3072K)
+ Metaspace       used 17934K, capacity 18705K, committed 18944K, reserved 1067008K
+  class space    used 1767K, capacity 1975K, committed 2048K, reserved 1048576K
+}
+Event: 8,845 GC heap after
+{Heap after GC invocations=13 (full 0):
+ garbage-first heap   total 78848K, used 25469K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 3 young (3072K), 3 survivors (3072K)
+ Metaspace       used 17934K, capacity 18705K, committed 18944K, reserved 1067008K
+  class space    used 1767K, capacity 1975K, committed 2048K, reserved 1048576K
+}
+Event: 8,869 GC heap before
+{Heap before GC invocations=13 (full 0):
+ garbage-first heap   total 78848K, used 26493K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 4 young (4096K), 3 survivors (3072K)
+ Metaspace       used 17941K, capacity 18705K, committed 18944K, reserved 1067008K
+  class space    used 1767K, capacity 1975K, committed 2048K, reserved 1048576K
+}
+Event: 8,881 GC heap after
+{Heap after GC invocations=14 (full 0):
+ garbage-first heap   total 95232K, used 19831K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 1 young (1024K), 1 survivors (1024K)
+ Metaspace       used 17941K, capacity 18705K, committed 18944K, reserved 1067008K
+  class space    used 1767K, capacity 1975K, committed 2048K, reserved 1048576K
+}
+Event: 10,773 GC heap before
+{Heap before GC invocations=14 (full 0):
+ garbage-first heap   total 95232K, used 45431K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 27 young (27648K), 1 survivors (1024K)
+ Metaspace       used 24394K, capacity 26253K, committed 26624K, reserved 1073152K
+  class space    used 2421K, capacity 3015K, committed 3072K, reserved 1048576K
+}
+Event: 10,787 GC heap after
+{Heap after GC invocations=15 (full 0):
+ garbage-first heap   total 95232K, used 23552K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 4 young (4096K), 4 survivors (4096K)
+ Metaspace       used 24394K, capacity 26253K, committed 26624K, reserved 1073152K
+  class space    used 2421K, capacity 3015K, committed 3072K, reserved 1048576K
+}
+Event: 12,139 GC heap before
+{Heap before GC invocations=15 (full 0):
+ garbage-first heap   total 95232K, used 33792K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 16 young (16384K), 4 survivors (4096K)
+ Metaspace       used 28910K, capacity 31428K, committed 31488K, reserved 1077248K
+  class space    used 2988K, capacity 3833K, committed 3840K, reserved 1048576K
+}
+Event: 12,146 GC heap after
+{Heap after GC invocations=16 (full 0):
+ garbage-first heap   total 95232K, used 25555K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 2 young (2048K), 2 survivors (2048K)
+ Metaspace       used 28910K, capacity 31428K, committed 31488K, reserved 1077248K
+  class space    used 2988K, capacity 3833K, committed 3840K, reserved 1048576K
+}
+Event: 14,051 GC heap before
+{Heap before GC invocations=17 (full 0):
+ garbage-first heap   total 95232K, used 57299K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 27 young (27648K), 2 survivors (2048K)
+ Metaspace       used 36826K, capacity 39808K, committed 40064K, reserved 1083392K
+  class space    used 4103K, capacity 5132K, committed 5248K, reserved 1048576K
+}
+Event: 14,076 GC heap after
+{Heap after GC invocations=18 (full 0):
+ garbage-first heap   total 95232K, used 29153K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 4 young (4096K), 4 survivors (4096K)
+ Metaspace       used 36826K, capacity 39808K, committed 40064K, reserved 1083392K
+  class space    used 4103K, capacity 5132K, committed 5248K, reserved 1048576K
+}
+Event: 14,121 GC heap before
+{Heap before GC invocations=18 (full 0):
+ garbage-first heap   total 95232K, used 30177K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 5 young (5120K), 4 survivors (4096K)
+ Metaspace       used 37026K, capacity 40040K, committed 40320K, reserved 1085440K
+  class space    used 4129K, capacity 5167K, committed 5248K, reserved 1048576K
+}
+Event: 14,135 GC heap after
+{Heap after GC invocations=19 (full 0):
+ garbage-first heap   total 95232K, used 28246K [0x00000000c0000000, 0x0000000100000000)
+  region size 1024K, 1 young (1024K), 1 survivors (1024K)
+ Metaspace       used 37026K, capacity 40040K, committed 40320K, reserved 1085440K
+  class space    used 4129K, capacity 5167K, committed 5248K, reserved 1048576K
+}
+
+Deoptimization events (20 events):
+Event: 13,911 Thread 0x00007f8ff0028800 Uncommon trap: trap_request=0xffffffd6 fr.pc=0x00007f8fe6f52a08 relative=0x00000000000001c8
+Event: 13,912 Thread 0x00007f8ff0028800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x00007f8fe6f52a08 method=org.eclipse.emf.common.util.BasicEList.assign(ILjava/lang/Object;)Ljava/lang/Object; @ 6 c2
+Event: 13,912 Thread 0x00007f8ff0028800 DEOPT PACKING pc=0x00007f8fe6f52a08 sp=0x00007f8ff73bcf60
+Event: 13,912 Thread 0x00007f8ff0028800 DEOPT UNPACKING pc=0x00007f8fdf28a4a5 sp=0x00007f8ff73bceb0 mode 2
+Event: 13,912 Thread 0x00007f8ff0028800 Uncommon trap: trap_request=0xffffffd6 fr.pc=0x00007f8fe6f52a08 relative=0x00000000000001c8
+Event: 13,912 Thread 0x00007f8ff0028800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x00007f8fe6f52a08 method=org.eclipse.emf.common.util.BasicEList.assign(ILjava/lang/Object;)Ljava/lang/Object; @ 6 c2
+Event: 13,912 Thread 0x00007f8ff0028800 DEOPT PACKING pc=0x00007f8fe6f52a08 sp=0x00007f8ff73bcd30
+Event: 13,912 Thread 0x00007f8ff0028800 DEOPT UNPACKING pc=0x00007f8fdf28a4a5 sp=0x00007f8ff73bcc80 mode 2
+Event: 13,912 Thread 0x00007f8ff0028800 Uncommon trap: trap_request=0xffffffd6 fr.pc=0x00007f8fe6f52a08 relative=0x00000000000001c8
+Event: 13,912 Thread 0x00007f8ff0028800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x00007f8fe6f52a08 method=org.eclipse.emf.common.util.BasicEList.assign(ILjava/lang/Object;)Ljava/lang/Object; @ 6 c2
+Event: 13,912 Thread 0x00007f8ff0028800 DEOPT PACKING pc=0x00007f8fe6f52a08 sp=0x00007f8ff73bcdd0
+Event: 13,912 Thread 0x00007f8ff0028800 DEOPT UNPACKING pc=0x00007f8fdf28a4a5 sp=0x00007f8ff73bcd20 mode 2
+Event: 13,912 Thread 0x00007f8ff0028800 Uncommon trap: trap_request=0xffffffd6 fr.pc=0x00007f8fe6f52a08 relative=0x00000000000001c8
+Event: 13,912 Thread 0x00007f8ff0028800 Uncommon trap: reason=array_check action=maybe_recompile pc=0x00007f8fe6f52a08 method=org.eclipse.emf.common.util.BasicEList.assign(ILjava/lang/Object;)Ljava/lang/Object; @ 6 c2
+Event: 13,912 Thread 0x00007f8ff0028800 DEOPT PACKING pc=0x00007f8fe6f52a08 sp=0x00007f8ff73bd160
+Event: 13,912 Thread 0x00007f8ff0028800 DEOPT UNPACKING pc=0x00007f8fdf28a4a5 sp=0x00007f8ff73bd0b0 mode 2
+Event: 13,924 Thread 0x00007f8ff0028800 Uncommon trap: trap_request=0xffffff4d fr.pc=0x00007f8fe6f51890 relative=0x0000000000000350
+Event: 13,924 Thread 0x00007f8ff0028800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x00007f8fe6f51890 method=org.eclipse.emf.common.util.BasicEList.contains(Ljava/lang/Object;)Z @ 26 c2
+Event: 13,924 Thread 0x00007f8ff0028800 DEOPT PACKING pc=0x00007f8fe6f51890 sp=0x00007f8ff73bd1a0
+Event: 13,924 Thread 0x00007f8ff0028800 DEOPT UNPACKING pc=0x00007f8fdf28a4a5 sp=0x00007f8ff73bd168 mode 2
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (20 events):
+Event: 11,887 Thread 0x00007f8ff0028800 Exception <a 'java/io/FileNotFoundException'{0x00000000c555c8c8}> (0x00000000c555c8c8) thrown at [./src/hotspot/share/prims/jni.cpp, line 615]
+Event: 11,933 Thread 0x00007f8ff0028800 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c5419088}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000000c5419088) thrown at [./src/hotspot/share/interpreter/linkResolver.cpp, line 773]
+Event: 11,948 Thread 0x00007f8ff0028800 Exception <a 'java/io/FileNotFoundException'{0x00000000c54752b8}> (0x00000000c54752b8) thrown at [./src/hotspot/share/prims/jni.cpp, line 615]
+Event: 11,982 Thread 0x00007f8ff0028800 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c5327f60}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000000c5327f60) thrown at [./src/hotspot/share/interpreter/linkResolver.cpp, line 773]
+Event: 12,552 Thread 0x00007f8ff0028800 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c5755e38}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000000c5755e38) thrown at [./src/hotspot/share/interpreter/linkResolver.cpp, line 773]
+Event: 12,589 Thread 0x00007f8ff0028800 Exception <a 'java/lang/reflect/InvocationTargetException'{0x00000000c57fc2a8}> (0x00000000c57fc2a8) thrown at [./src/hotspot/share/runtime/reflection.cpp, line 1247]
+Event: 12,695 Thread 0x00007f8ff0028800 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c55c0238}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000000c55c0238) thrown at [./src/hotspot/share/interpreter/linkResolver.cpp, line 773]
+Event: 13,235 Thread 0x00007f8ff0028800 Exception <a 'java/io/FileNotFoundException'{0x00000000c4cdf890}> (0x00000000c4cdf890) thrown at [./src/hotspot/share/prims/jni.cpp, line 615]
+Event: 13,286 Thread 0x00007f8ff0028800 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c4b5df70}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object)'> (0x00000000c4b5df70) thrown at [./src/hotspot/share/interpreter/linkResolver.cpp, line 773]
+Event: 13,467 Thread 0x00007f8ff0028800 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c4a82e00}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeVirtual(java.lang.Object, java.lang.Object)'> (0x00000000c4a82e00) thrown at [./src/hotspot/share/interpreter/linkResolver.cpp, line 773]
+Event: 13,468 Thread 0x00007f8ff0028800 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c4a8f168}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object, java.lang.Object, int, java.lang.Object)'> (0x00000000c4a8f168) thrown at [./src/hotspot/share/interpreter/linkResolver.cpp, line 773]
+Event: 13,469 Thread 0x00007f8ff0028800 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c4a92a50}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, int, java.lang.Object)'> (0x00000000c4a92a50) thrown at [./src/hotspot/share/interpreter/linkResolver.cpp, line 773]
+Event: 13,470 Thread 0x00007f8ff0028800 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c4a95c48}: 'java.lang.Object java.lang.invoke.Invokers$Holder.linkToTargetMethod(java.lang.Object, java.lang.Object, int, java.lang.Object, java.lang.Object)'> (0x00000000c4a95c48) thrown at [./src/hotspot/share/interpreter/linkResolver.cpp, line 773]
+Event: 13,478 Thread 0x00007f8ff0028800 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c4ab4080}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, int)'> (0x00000000c4ab4080) thrown at [./src/hotspot/share/interpreter/linkResolver.cpp, line 773]
+Event: 13,479 Thread 0x00007f8ff0028800 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c4aba658}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object, java.lang.Object, int)'> (0x00000000c4aba658) thrown at [./src/hotspot/share/interpreter/linkResolver.cpp, line 773]
+Event: 13,479 Thread 0x00007f8ff0028800 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c4abe278}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, java.lang.Object, java.lang.Object, int)'> (0x00000000c4abe278) thrown at [./src/hotspot/share/interpreter/linkResolver.cpp, line 773]
+Event: 13,480 Thread 0x00007f8ff0028800 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c4ac12e0}: 'java.lang.Object java.lang.invoke.Invokers$Holder.linkToTargetMethod(java.lang.Object, java.lang.Object, int, java.lang.Object)'> (0x00000000c4ac12e0) thrown at [./src/hotspot/share/interpreter/linkResolver.cpp, line 773]
+Event: 13,593 Thread 0x00007f8ff0028800 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c497aa18}: 'int java.lang.invoke.DirectMethodHandle$Holder.invokeVirtual(java.lang.Object, java.lang.Object, java.lang.Object)'> (0x00000000c497aa18) thrown at [./src/hotspot/share/interpreter/linkResolver.cpp, line 773]
+Event: 14,152 Thread 0x00007f8ff0028800 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c5c3d8c8}: 'void java.lang.invoke.DirectMethodHandle$Holder.invokeSpecial(java.lang.Object, java.lang.Object, double)'> (0x00000000c5c3d8c8) thrown at [./src/hotspot/share/interpreter/linkResolver.cpp, line 773]
+Event: 14,153 Thread 0x00007f8ff0028800 Exception <a 'java/lang/NoSuchMethodError'{0x00000000c5c43e90}: 'java.lang.Object java.lang.invoke.DirectMethodHandle$Holder.invokeStatic(java.lang.Object, java.lang.Object, double)'> (0x00000000c5c43e90) thrown at [./src/hotspot/share/interpreter/linkResolver.cpp, line 773]
+
+Events (20 events):
+Event: 14,190 loading class org/eclipse/jface/resource/jfacefonts_linux_gtk_pt_BR done
+Event: 14,190 loading class org/eclipse/swt/widgets/Event
+Event: 14,190 loading class org/eclipse/swt/widgets/Event done
+Event: 14,190 loading class org/eclipse/swt/widgets/Event
+Event: 14,190 loading class org/eclipse/swt/widgets/Event done
+Event: 14,190 loading class org/eclipse/ui/internal/themes/WorkbenchThemeManager
+Event: 14,190 loading class org/eclipse/ui/internal/themes/WorkbenchThemeManager done
+Event: 14,193 loading class org/eclipse/jface/util/PropertyChangeEvent
+Event: 14,193 loading class org/eclipse/jface/util/PropertyChangeEvent done
+Event: 14,193 loading class org/eclipse/jface/util/PropertyChangeEvent
+Event: 14,193 loading class org/eclipse/jface/util/PropertyChangeEvent done
+Event: 14,193 loading class org/eclipse/ui/internal/themes/Theme
+Event: 14,193 loading class org/eclipse/ui/internal/themes/Theme done
+Event: 14,194 loading class org/eclipse/jface/util/PropertyChangeEvent
+Event: 14,194 loading class org/eclipse/jface/util/PropertyChangeEvent done
+Event: 14,194 loading class org/eclipse/ui/internal/themes/Theme
+Event: 14,194 loading class org/eclipse/ui/internal/themes/Theme done
+Event: 14,200 loading class jdk/internal/math/FDBigInteger
+Event: 14,200 loading class jdk/internal/math/FDBigInteger done
+Event: 14,204 Loaded shared library /home/andre/snap/dbeaver-ce/108/.eclipse/org.jkiss.dbeaver.product_21.0.2_1460836299_linux_gtk_x86_64/configuration/org.eclipse.osgi/138/0/.cp/libswt-pi3-gtk-4940r23.so
+
+
+Dynamic libraries:
+c0000000-c5d00000 rw-p 00000000 00:00 0 
+c5d00000-100000000 ---p 00000000 00:00 0 
+100000000-100520000 rw-p 00000000 00:00 0 
+100520000-140000000 ---p 00000000 00:00 0 
+558f5e600000-558f5e601000 r-xp 00000000 07:08 2132                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/bin/java
+558f5e801000-558f5e802000 r--p 00001000 07:08 2132                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/bin/java
+558f5e802000-558f5e803000 rw-p 00002000 07:08 2132                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/bin/java
+558f5fcb9000-558f5fcda000 rw-p 00000000 00:00 0                          [heap]
+7f8f4e75f000-7f8f4ef5f000 rw-s 00000000 00:01 1015861                    /SYSV00000000 (deleted)
+7f8f4ef5f000-7f8f4ef68000 r-xp 00000000 fd:02 6817142                    /home/andre/snap/dbeaver-ce/108/.eclipse/org.jkiss.dbeaver.product_21.0.2_1460836299_linux_gtk_x86_64/configuration/org.eclipse.osgi/138/0/.cp/libswt-atk-gtk-4940r23.so
+7f8f4ef68000-7f8f4f167000 ---p 00009000 fd:02 6817142                    /home/andre/snap/dbeaver-ce/108/.eclipse/org.jkiss.dbeaver.product_21.0.2_1460836299_linux_gtk_x86_64/configuration/org.eclipse.osgi/138/0/.cp/libswt-atk-gtk-4940r23.so
+7f8f4f167000-7f8f4f168000 r--p 00008000 fd:02 6817142                    /home/andre/snap/dbeaver-ce/108/.eclipse/org.jkiss.dbeaver.product_21.0.2_1460836299_linux_gtk_x86_64/configuration/org.eclipse.osgi/138/0/.cp/libswt-atk-gtk-4940r23.so
+7f8f4f168000-7f8f4f169000 rw-p 00009000 fd:02 6817142                    /home/andre/snap/dbeaver-ce/108/.eclipse/org.jkiss.dbeaver.product_21.0.2_1460836299_linux_gtk_x86_64/configuration/org.eclipse.osgi/138/0/.cp/libswt-atk-gtk-4940r23.so
+7f8f4f169000-7f8f4f369000 rw-p 00000000 00:00 0 
+7f8f4f369000-7f8f4f569000 rw-p 00000000 00:00 0 
+7f8f4f569000-7f8f4f56d000 ---p 00000000 00:00 0 
+7f8f4f56d000-7f8f4f86a000 rw-p 00000000 00:00 0 
+7f8f4f86a000-7f8f4f86e000 ---p 00000000 00:00 0 
+7f8f4f86e000-7f8f4fb6b000 rw-p 00000000 00:00 0 
+7f8f4fb6b000-7f8f4fb6f000 ---p 00000000 00:00 0 
+7f8f4fb6f000-7f8f4fc6c000 rw-p 00000000 00:00 0 
+7f8f4fc6c000-7f8f4fc6d000 r-xp 00000000 07:08 2331                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/librmi.so
+7f8f4fc6d000-7f8f4fe6c000 ---p 00001000 07:08 2331                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/librmi.so
+7f8f4fe6c000-7f8f4fe6d000 r--p 00000000 07:08 2331                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/librmi.so
+7f8f4fe6d000-7f8f4fe6e000 rw-p 00001000 07:08 2331                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/librmi.so
+7f8f4fe6e000-7f8f4fe72000 ---p 00000000 00:00 0 
+7f8f4fe72000-7f8f4ff6f000 rw-p 00000000 00:00 0 
+7f8f4ff6f000-7f8f4ff74000 r-xp 00000000 07:00 1449                       /lib/x86_64-linux-gnu/libnss_dns-2.27.so
+7f8f4ff74000-7f8f50174000 ---p 00005000 07:00 1449                       /lib/x86_64-linux-gnu/libnss_dns-2.27.so
+7f8f50174000-7f8f50175000 r--p 00005000 07:00 1449                       /lib/x86_64-linux-gnu/libnss_dns-2.27.so
+7f8f50175000-7f8f50176000 rw-p 00006000 07:00 1449                       /lib/x86_64-linux-gnu/libnss_dns-2.27.so
+7f8f50176000-7f8f50376000 rw-p 00000000 00:00 0 
+7f8f50376000-7f8f5037b000 r-xp 00000000 07:0b 8275                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.so
+7f8f5037b000-7f8f5057a000 ---p 00005000 07:0b 8275                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.so
+7f8f5057a000-7f8f5057b000 r--p 00004000 07:0b 8275                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.so
+7f8f5057b000-7f8f5057c000 rw-p 00005000 07:0b 8275                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-png.so
+7f8f5057c000-7f8f5057d000 ---p 00000000 00:00 0 
+7f8f5057d000-7f8f50d7d000 rw-p 00000000 00:00 0 
+7f8f50d7d000-7f8f50d7e000 ---p 00000000 00:00 0 
+7f8f50d7e000-7f8f5157e000 rw-p 00000000 00:00 0 
+7f8f5157e000-7f8f5157f000 ---p 00000000 00:00 0 
+7f8f5157f000-7f8f51d7f000 rw-p 00000000 00:00 0 
+7f8f51d7f000-7f8f51d80000 ---p 00000000 00:00 0 
+7f8f51d80000-7f8f52580000 rw-p 00000000 00:00 0 
+7f8f52580000-7f8f525e4000 r-xp 00000000 07:08 837                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libibus-1.0.so.5.0.517
+7f8f525e4000-7f8f527e4000 ---p 00064000 07:08 837                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libibus-1.0.so.5.0.517
+7f8f527e4000-7f8f527e6000 r--p 00064000 07:08 837                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libibus-1.0.so.5.0.517
+7f8f527e6000-7f8f527e7000 rw-p 00066000 07:08 837                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libibus-1.0.so.5.0.517
+7f8f527e7000-7f8f527ee000 r-xp 00000000 07:0b 8347                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/gtk-3.0/3.0.0/immodules/im-ibus.so
+7f8f527ee000-7f8f529ed000 ---p 00007000 07:0b 8347                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/gtk-3.0/3.0.0/immodules/im-ibus.so
+7f8f529ed000-7f8f529ee000 r--p 00006000 07:0b 8347                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/gtk-3.0/3.0.0/immodules/im-ibus.so
+7f8f529ee000-7f8f529ef000 rw-p 00007000 07:0b 8347                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/gtk-3.0/3.0.0/immodules/im-ibus.so
+7f8f529ef000-7f8f529f9000 r-xp 00000000 fd:02 6817130                    /home/andre/snap/dbeaver-ce/108/.eclipse/org.jkiss.dbeaver.product_21.0.2_1460836299_linux_gtk_x86_64/configuration/org.eclipse.osgi/138/0/.cp/libswt-cairo-gtk-4940r23.so
+7f8f529f9000-7f8f52bf8000 ---p 0000a000 fd:02 6817130                    /home/andre/snap/dbeaver-ce/108/.eclipse/org.jkiss.dbeaver.product_21.0.2_1460836299_linux_gtk_x86_64/configuration/org.eclipse.osgi/138/0/.cp/libswt-cairo-gtk-4940r23.so
+7f8f52bf8000-7f8f52bf9000 r--p 00009000 fd:02 6817130                    /home/andre/snap/dbeaver-ce/108/.eclipse/org.jkiss.dbeaver.product_21.0.2_1460836299_linux_gtk_x86_64/configuration/org.eclipse.osgi/138/0/.cp/libswt-cairo-gtk-4940r23.so
+7f8f52bf9000-7f8f52bfa000 rw-p 0000a000 fd:02 6817130                    /home/andre/snap/dbeaver-ce/108/.eclipse/org.jkiss.dbeaver.product_21.0.2_1460836299_linux_gtk_x86_64/configuration/org.eclipse.osgi/138/0/.cp/libswt-cairo-gtk-4940r23.so
+7f8f52bfa000-7f8f52bfe000 ---p 00000000 00:00 0 
+7f8f52bfe000-7f8f52cfb000 rw-p 00000000 00:00 0 
+7f8f52cfb000-7f8f52cff000 ---p 00000000 00:00 0 
+7f8f52cff000-7f8f52dfc000 rw-p 00000000 00:00 0 
+7f8f52dfc000-7f8f52dfe000 r-xp 00000000 fd:02 6817118                    /home/andre/snap/dbeaver-ce/108/.eclipse/org.jkiss.dbeaver.product_21.0.2_1460836299_linux_gtk_x86_64/configuration/org.eclipse.osgi/37/0/.cp/os/linux/x86_64/libunixfile_1_0_0.so
+7f8f52dfe000-7f8f52ffd000 ---p 00002000 fd:02 6817118                    /home/andre/snap/dbeaver-ce/108/.eclipse/org.jkiss.dbeaver.product_21.0.2_1460836299_linux_gtk_x86_64/configuration/org.eclipse.osgi/37/0/.cp/os/linux/x86_64/libunixfile_1_0_0.so
+7f8f52ffd000-7f8f52ffe000 r--p 00001000 fd:02 6817118                    /home/andre/snap/dbeaver-ce/108/.eclipse/org.jkiss.dbeaver.product_21.0.2_1460836299_linux_gtk_x86_64/configuration/org.eclipse.osgi/37/0/.cp/os/linux/x86_64/libunixfile_1_0_0.so
+7f8f52ffe000-7f8f52fff000 rw-p 00002000 fd:02 6817118                    /home/andre/snap/dbeaver-ce/108/.eclipse/org.jkiss.dbeaver.product_21.0.2_1460836299_linux_gtk_x86_64/configuration/org.eclipse.osgi/37/0/.cp/os/linux/x86_64/libunixfile_1_0_0.so
+7f8f52fff000-7f8f531ff000 rw-p 00000000 00:00 0 
+7f8f531ff000-7f8f533ff000 rw-p 00000000 00:00 0 
+7f8f533ff000-7f8f53403000 ---p 00000000 00:00 0 
+7f8f53403000-7f8f53500000 rw-p 00000000 00:00 0 
+7f8f53500000-7f8f53501000 r-xp 00000000 07:08 815                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgthread-2.0.so.0.5600.4
+7f8f53501000-7f8f53700000 ---p 00001000 07:08 815                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgthread-2.0.so.0.5600.4
+7f8f53700000-7f8f53701000 r--p 00000000 07:08 815                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgthread-2.0.so.0.5600.4
+7f8f53701000-7f8f53702000 rw-p 00001000 07:08 815                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgthread-2.0.so.0.5600.4
+7f8f53702000-7f8f53773000 r-xp 00000000 fd:02 6816985                    /home/andre/snap/dbeaver-ce/108/.eclipse/org.jkiss.dbeaver.product_21.0.2_1460836299_linux_gtk_x86_64/configuration/org.eclipse.osgi/138/0/.cp/libswt-pi3-gtk-4940r23.so
+7f8f53773000-7f8f53972000 ---p 00071000 fd:02 6816985                    /home/andre/snap/dbeaver-ce/108/.eclipse/org.jkiss.dbeaver.product_21.0.2_1460836299_linux_gtk_x86_64/configuration/org.eclipse.osgi/138/0/.cp/libswt-pi3-gtk-4940r23.so
+7f8f53972000-7f8f53973000 r--p 00070000 fd:02 6816985                    /home/andre/snap/dbeaver-ce/108/.eclipse/org.jkiss.dbeaver.product_21.0.2_1460836299_linux_gtk_x86_64/configuration/org.eclipse.osgi/138/0/.cp/libswt-pi3-gtk-4940r23.so
+7f8f53973000-7f8f53976000 rw-p 00071000 fd:02 6816985                    /home/andre/snap/dbeaver-ce/108/.eclipse/org.jkiss.dbeaver.product_21.0.2_1460836299_linux_gtk_x86_64/configuration/org.eclipse.osgi/138/0/.cp/libswt-pi3-gtk-4940r23.so
+7f8f53976000-7f8f53977000 rw-p 00000000 00:00 0 
+7f8f53977000-7f8f539f5000 r-xp 00000000 fd:02 6816984                    /home/andre/snap/dbeaver-ce/108/.eclipse/org.jkiss.dbeaver.product_21.0.2_1460836299_linux_gtk_x86_64/configuration/org.eclipse.osgi/138/0/.cp/libswt-gtk-4940r23.so
+7f8f539f5000-7f8f53bf4000 ---p 0007e000 fd:02 6816984                    /home/andre/snap/dbeaver-ce/108/.eclipse/org.jkiss.dbeaver.product_21.0.2_1460836299_linux_gtk_x86_64/configuration/org.eclipse.osgi/138/0/.cp/libswt-gtk-4940r23.so
+7f8f53bf4000-7f8f53bf5000 r--p 0007d000 fd:02 6816984                    /home/andre/snap/dbeaver-ce/108/.eclipse/org.jkiss.dbeaver.product_21.0.2_1460836299_linux_gtk_x86_64/configuration/org.eclipse.osgi/138/0/.cp/libswt-gtk-4940r23.so
+7f8f53bf5000-7f8f53bfc000 rw-p 0007e000 fd:02 6816984                    /home/andre/snap/dbeaver-ce/108/.eclipse/org.jkiss.dbeaver.product_21.0.2_1460836299_linux_gtk_x86_64/configuration/org.eclipse.osgi/138/0/.cp/libswt-gtk-4940r23.so
+7f8f53bfc000-7f8f53e00000 rw-p 00000000 00:00 0 
+7f8f53e00000-7f8f54000000 rw-p 00000000 00:00 0 
+7f8f54000000-7f8f54021000 rw-p 00000000 00:00 0 
+7f8f54021000-7f8f58000000 ---p 00000000 00:00 0 
+7f8f58000000-7f8f58021000 rw-p 00000000 00:00 0 
+7f8f58021000-7f8f5c000000 ---p 00000000 00:00 0 
+7f8f5c000000-7f8f5c021000 rw-p 00000000 00:00 0 
+7f8f5c021000-7f8f60000000 ---p 00000000 00:00 0 
+7f8f60000000-7f8f61398000 rw-p 00000000 00:00 0 
+7f8f61398000-7f8f64000000 ---p 00000000 00:00 0 
+7f8f64000000-7f8f64036000 rw-p 00000000 00:00 0 
+7f8f64036000-7f8f68000000 ---p 00000000 00:00 0 
+7f8f68000000-7f8f68023000 rw-p 00000000 00:00 0 
+7f8f68023000-7f8f6c000000 ---p 00000000 00:00 0 
+7f8f6c000000-7f8f6c090000 rw-p 00000000 00:00 0 
+7f8f6c090000-7f8f70000000 ---p 00000000 00:00 0 
+7f8f70000000-7f8f70a2e000 rw-p 00000000 00:00 0 
+7f8f70a2e000-7f8f74000000 ---p 00000000 00:00 0 
+7f8f74000000-7f8f74021000 rw-p 00000000 00:00 0 
+7f8f74021000-7f8f78000000 ---p 00000000 00:00 0 
+7f8f78000000-7f8f78021000 rw-p 00000000 00:00 0 
+7f8f78021000-7f8f7c000000 ---p 00000000 00:00 0 
+7f8f7c000000-7f8f7c021000 rw-p 00000000 00:00 0 
+7f8f7c021000-7f8f80000000 ---p 00000000 00:00 0 
+7f8f80000000-7f8f8002d000 rw-p 00000000 00:00 0 
+7f8f8002d000-7f8f84000000 ---p 00000000 00:00 0 
+7f8f84000000-7f8f84021000 rw-p 00000000 00:00 0 
+7f8f84021000-7f8f88000000 ---p 00000000 00:00 0 
+7f8f88000000-7f8f88021000 rw-p 00000000 00:00 0 
+7f8f88021000-7f8f8c000000 ---p 00000000 00:00 0 
+7f8f8c000000-7f8f8c6f1000 rw-p 00000000 00:00 0 
+7f8f8c6f1000-7f8f90000000 ---p 00000000 00:00 0 
+7f8f9006e000-7f8f9026e000 rw-p 00000000 00:00 0 
+7f8f9026e000-7f8f90272000 ---p 00000000 00:00 0 
+7f8f90272000-7f8f9036f000 rw-p 00000000 00:00 0 
+7f8f90423000-7f8f90427000 ---p 00000000 00:00 0 
+7f8f90427000-7f8f90524000 rw-p 00000000 00:00 0 
+7f8f905f8000-7f8f905fc000 ---p 00000000 00:00 0 
+7f8f905fc000-7f8f906f9000 rw-p 00000000 00:00 0 
+7f8f906f9000-7f8f906fa000 ---p 00000000 00:00 0 
+7f8f906fa000-7f8f907fb000 rw-p 00000000 00:00 0 
+7f8f907fb000-7f8f907fc000 ---p 00000000 00:00 0 
+7f8f907fc000-7f8f908fd000 rw-p 00000000 00:00 0 
+7f8f908fd000-7f8f908fe000 ---p 00000000 00:00 0 
+7f8f908fe000-7f8f909ff000 rw-p 00000000 00:00 0 
+7f8f909ff000-7f8f90a03000 ---p 00000000 00:00 0 
+7f8f90a03000-7f8f90b00000 rw-p 00000000 00:00 0 
+7f8f90b00000-7f8f90b01000 ---p 00000000 00:00 0 
+7f8f90b01000-7f8f90c02000 rw-p 00000000 00:00 0 
+7f8f90c02000-7f8f90c03000 ---p 00000000 00:00 0 
+7f8f90c03000-7f8f90f04000 rw-p 00000000 00:00 0 
+7f8f91000000-7f8f91004000 ---p 00000000 00:00 0 
+7f8f91004000-7f8f91101000 rw-p 00000000 00:00 0 
+7f8f91101000-7f8f91103000 r-xp 00000000 07:08 2312                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libextnet.so
+7f8f91103000-7f8f91302000 ---p 00002000 07:08 2312                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libextnet.so
+7f8f91302000-7f8f91303000 r--p 00001000 07:08 2312                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libextnet.so
+7f8f91303000-7f8f91304000 rw-p 00002000 07:08 2312                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libextnet.so
+7f8f9131b000-7f8f9139b000 rw-p 00000000 00:00 0 
+7f8f9139b000-7f8f9151b000 ---p 00000000 00:00 0 
+7f8f91603000-7f8f91607000 ---p 00000000 00:00 0 
+7f8f91607000-7f8f91704000 rw-p 00000000 00:00 0 
+7f8f91704000-7f8f91708000 ---p 00000000 00:00 0 
+7f8f91708000-7f8f91805000 rw-p 00000000 00:00 0 
+7f8f91805000-7f8f91809000 ---p 00000000 00:00 0 
+7f8f91809000-7f8f91906000 rw-p 00000000 00:00 0 
+7f8f91906000-7f8f9190a000 ---p 00000000 00:00 0 
+7f8f9190a000-7f8f91a07000 rw-p 00000000 00:00 0 
+7f8f91a07000-7f8f91a0b000 ---p 00000000 00:00 0 
+7f8f91a0b000-7f8f91b08000 rw-p 00000000 00:00 0 
+7f8f91b08000-7f8f91b0c000 ---p 00000000 00:00 0 
+7f8f91b0c000-7f8f91c09000 rw-p 00000000 00:00 0 
+7f8f91c09000-7f8f91c0d000 ---p 00000000 00:00 0 
+7f8f91c0d000-7f8f91d0a000 rw-p 00000000 00:00 0 
+7f8f91d0a000-7f8f91d0e000 ---p 00000000 00:00 0 
+7f8f91d0e000-7f8f91e0b000 rw-p 00000000 00:00 0 
+7f8f91e0b000-7f8f91e0f000 ---p 00000000 00:00 0 
+7f8f91e0f000-7f8f9210c000 rw-p 00000000 00:00 0 
+7f8f9210c000-7f8f9210d000 ---p 00000000 00:00 0 
+7f8f9210d000-7f8f9240e000 rw-p 00000000 00:00 0 
+7f8f9240e000-7f8f92411000 r-xp 00000000 07:0b 8270                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-bmp.so
+7f8f92411000-7f8f92611000 ---p 00003000 07:0b 8270                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-bmp.so
+7f8f92611000-7f8f92612000 r--p 00003000 07:0b 8270                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-bmp.so
+7f8f92612000-7f8f92613000 rw-p 00004000 07:0b 8270                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders/libpixbufloader-bmp.so
+7f8f92613000-7f8f9261a000 r-xp 00000000 07:08 890                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libogg.so.0.8.2
+7f8f9261a000-7f8f9281a000 ---p 00007000 07:08 890                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libogg.so.0.8.2
+7f8f9281a000-7f8f9281b000 r--p 00007000 07:08 890                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libogg.so.0.8.2
+7f8f9281b000-7f8f9281c000 rw-p 00008000 07:08 890                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libogg.so.0.8.2
+7f8f9281c000-7f8f92846000 r-xp 00000000 07:08 948                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.8
+7f8f92846000-7f8f92a45000 ---p 0002a000 07:08 948                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.8
+7f8f92a45000-7f8f92a46000 r--p 00029000 07:08 948                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.8
+7f8f92a46000-7f8f92a47000 rw-p 0002a000 07:08 948                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libvorbis.so.0.4.8
+7f8f92a47000-7f8f92a50000 r-xp 00000000 07:0b 8692                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/libltdl.so.7.3.1
+7f8f92a50000-7f8f92c4f000 ---p 00009000 07:0b 8692                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/libltdl.so.7.3.1
+7f8f92c4f000-7f8f92c50000 r--p 00008000 07:0b 8692                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/libltdl.so.7.3.1
+7f8f92c50000-7f8f92c51000 rw-p 00009000 07:0b 8692                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/libltdl.so.7.3.1
+7f8f92c51000-7f8f92c66000 r-xp 00000000 07:0b 8785                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/libtdb.so.1.3.15
+7f8f92c66000-7f8f92e65000 ---p 00015000 07:0b 8785                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/libtdb.so.1.3.15
+7f8f92e65000-7f8f92e66000 r--p 00014000 07:0b 8785                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/libtdb.so.1.3.15
+7f8f92e66000-7f8f92e67000 rw-p 00015000 07:0b 8785                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/libtdb.so.1.3.15
+7f8f92e67000-7f8f92e6e000 r-xp 00000000 07:0b 8800                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/libvorbisfile.so.3.3.7
+7f8f92e6e000-7f8f9306d000 ---p 00007000 07:0b 8800                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/libvorbisfile.so.3.3.7
+7f8f9306d000-7f8f9306e000 r--p 00006000 07:0b 8800                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/libvorbisfile.so.3.3.7
+7f8f9306e000-7f8f9306f000 rw-p 00007000 07:0b 8800                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/libvorbisfile.so.3.3.7
+7f8f9306f000-7f8f9307f000 r-xp 00000000 07:0b 8459                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/libcanberra.so.0.2.5
+7f8f9307f000-7f8f9327f000 ---p 00010000 07:0b 8459                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/libcanberra.so.0.2.5
+7f8f9327f000-7f8f93280000 r--p 00010000 07:0b 8459                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/libcanberra.so.0.2.5
+7f8f93280000-7f8f93281000 rw-p 00011000 07:0b 8459                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/libcanberra.so.0.2.5
+7f8f93281000-7f8f93285000 r-xp 00000000 07:0b 8457                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/libcanberra-gtk3.so.0.1.9
+7f8f93285000-7f8f93484000 ---p 00004000 07:0b 8457                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/libcanberra-gtk3.so.0.1.9
+7f8f93484000-7f8f93485000 r--p 00003000 07:0b 8457                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/libcanberra-gtk3.so.0.1.9
+7f8f93485000-7f8f93486000 rw-p 00004000 07:0b 8457                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/libcanberra-gtk3.so.0.1.9
+7f8f93486000-7f8f9348b000 r-xp 00000000 07:0b 8365                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/gtk-3.0/modules/libcanberra-gtk3-module.so
+7f8f9348b000-7f8f9368b000 ---p 00005000 07:0b 8365                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/gtk-3.0/modules/libcanberra-gtk3-module.so
+7f8f9368b000-7f8f9368c000 r--p 00005000 07:0b 8365                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/gtk-3.0/modules/libcanberra-gtk3-module.so
+7f8f9368c000-7f8f9368d000 rw-p 00006000 07:0b 8365                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/gtk-3.0/modules/libcanberra-gtk3-module.so
+7f8f9368d000-7f8f936a1000 r-xp 00000000 07:00 1411                       /lib/x86_64-linux-gnu/libgpg-error.so.0.22.0
+7f8f936a1000-7f8f938a0000 ---p 00014000 07:00 1411                       /lib/x86_64-linux-gnu/libgpg-error.so.0.22.0
+7f8f938a0000-7f8f938a1000 r--p 00013000 07:00 1411                       /lib/x86_64-linux-gnu/libgpg-error.so.0.22.0
+7f8f938a1000-7f8f938a2000 rw-p 00014000 07:00 1411                       /lib/x86_64-linux-gnu/libgpg-error.so.0.22.0
+7f8f938a2000-7f8f939b6000 r-xp 00000000 07:00 1409                       /lib/x86_64-linux-gnu/libgcrypt.so.20.2.1
+7f8f939b6000-7f8f93bb6000 ---p 00114000 07:00 1409                       /lib/x86_64-linux-gnu/libgcrypt.so.20.2.1
+7f8f93bb6000-7f8f93bb8000 r--p 00114000 07:00 1409                       /lib/x86_64-linux-gnu/libgcrypt.so.20.2.1
+7f8f93bb8000-7f8f93bbd000 rw-p 00116000 07:00 1409                       /lib/x86_64-linux-gnu/libgcrypt.so.20.2.1
+7f8f93bbd000-7f8f93bbe000 rw-p 00000000 00:00 0 
+7f8f93bbe000-7f8f93bd9000 r-xp 00000000 07:08 875                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/liblz4.so.1.7.1
+7f8f93bd9000-7f8f93dd8000 ---p 0001b000 07:08 875                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/liblz4.so.1.7.1
+7f8f93dd8000-7f8f93dd9000 r--p 0001a000 07:08 875                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/liblz4.so.1.7.1
+7f8f93dd9000-7f8f93dda000 rw-p 0001b000 07:08 875                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/liblz4.so.1.7.1
+7f8f93dda000-7f8f93dfe000 r-xp 00000000 07:00 1425                       /lib/x86_64-linux-gnu/liblzma.so.5.2.2
+7f8f93dfe000-7f8f93ffe000 ---p 00024000 07:00 1425                       /lib/x86_64-linux-gnu/liblzma.so.5.2.2
+7f8f93ffe000-7f8f93fff000 r--p 00024000 07:00 1425                       /lib/x86_64-linux-gnu/liblzma.so.5.2.2
+7f8f93fff000-7f8f94000000 rw-p 00025000 07:00 1425                       /lib/x86_64-linux-gnu/liblzma.so.5.2.2
+7f8f94000000-7f8f94080000 r-xp 00000000 07:00 1487                       /lib/x86_64-linux-gnu/libsystemd.so.0.21.0
+7f8f94080000-7f8f9427f000 ---p 00080000 07:00 1487                       /lib/x86_64-linux-gnu/libsystemd.so.0.21.0
+7f8f9427f000-7f8f94282000 r--p 0007f000 07:00 1487                       /lib/x86_64-linux-gnu/libsystemd.so.0.21.0
+7f8f94282000-7f8f94283000 rw-p 00082000 07:00 1487                       /lib/x86_64-linux-gnu/libsystemd.so.0.21.0
+7f8f94283000-7f8f94284000 rw-p 00000000 00:00 0 
+7f8f94284000-7f8f942b0000 r-xp 00000000 07:08 726                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libatspi.so.0.0.1
+7f8f942b0000-7f8f944b0000 ---p 0002c000 07:08 726                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libatspi.so.0.0.1
+7f8f944b0000-7f8f944b3000 r--p 0002c000 07:08 726                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libatspi.so.0.0.1
+7f8f944b3000-7f8f944b4000 rw-p 0002f000 07:08 726                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libatspi.so.0.0.1
+7f8f944b4000-7f8f944ff000 r-xp 00000000 07:08 197                        /snap/dbeaver-ce/108/lib/x86_64-linux-gnu/libdbus-1.so.3.19.4
+7f8f944ff000-7f8f946ff000 ---p 0004b000 07:08 197                        /snap/dbeaver-ce/108/lib/x86_64-linux-gnu/libdbus-1.so.3.19.4
+7f8f946ff000-7f8f94700000 r--p 0004b000 07:08 197                        /snap/dbeaver-ce/108/lib/x86_64-linux-gnu/libdbus-1.so.3.19.4
+7f8f94700000-7f8f94701000 rw-p 0004c000 07:08 197                        /snap/dbeaver-ce/108/lib/x86_64-linux-gnu/libdbus-1.so.3.19.4
+7f8f94701000-7f8f9472f000 r-xp 00000000 07:08 724                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libatk-bridge-2.0.so.0.0.0
+7f8f9472f000-7f8f9492f000 ---p 0002e000 07:08 724                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libatk-bridge-2.0.so.0.0.0
+7f8f9492f000-7f8f94930000 r--p 0002e000 07:08 724                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libatk-bridge-2.0.so.0.0.0
+7f8f94930000-7f8f94931000 rw-p 0002f000 07:08 724                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libatk-bridge-2.0.so.0.0.0
+7f8f94931000-7f8f94932000 rw-p 00000000 00:00 0 
+7f8f94932000-7f8f94954000 r-xp 00000000 07:08 722                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libatk-1.0.so.0.22810.1
+7f8f94954000-7f8f94b54000 ---p 00022000 07:08 722                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libatk-1.0.so.0.22810.1
+7f8f94b54000-7f8f94b57000 r--p 00022000 07:08 722                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libatk-1.0.so.0.22810.1
+7f8f94b57000-7f8f94b58000 rw-p 00025000 07:08 722                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libatk-1.0.so.0.22810.1
+7f8f94b58000-7f8f95249000 r-xp 00000000 07:08 819                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2200.30
+7f8f95249000-7f8f95449000 ---p 006f1000 07:08 819                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2200.30
+7f8f95449000-7f8f95454000 r--p 006f1000 07:08 819                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2200.30
+7f8f95454000-7f8f9545b000 rw-p 006fc000 07:08 819                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgtk-3.so.0.2200.30
+7f8f9545b000-7f8f95460000 rw-p 00000000 00:00 0 
+7f8f95460000-7f8f95473000 r-xp 00000000 07:08 193                        /snap/dbeaver-ce/108/lib/x86_64-linux-gnu/libbsd.so.0.8.7
+7f8f95473000-7f8f95672000 ---p 00013000 07:08 193                        /snap/dbeaver-ce/108/lib/x86_64-linux-gnu/libbsd.so.0.8.7
+7f8f95672000-7f8f95673000 r--p 00012000 07:08 193                        /snap/dbeaver-ce/108/lib/x86_64-linux-gnu/libbsd.so.0.8.7
+7f8f95673000-7f8f95674000 rw-p 00013000 07:08 193                        /snap/dbeaver-ce/108/lib/x86_64-linux-gnu/libbsd.so.0.8.7
+7f8f95674000-7f8f95675000 rw-p 00000000 00:00 0 
+7f8f95675000-7f8f9567b000 r-xp 00000000 07:00 1497                       /lib/x86_64-linux-gnu/libuuid.so.1.3.0
+7f8f9567b000-7f8f9587a000 ---p 00006000 07:00 1497                       /lib/x86_64-linux-gnu/libuuid.so.1.3.0
+7f8f9587a000-7f8f9587b000 r--p 00005000 07:00 1497                       /lib/x86_64-linux-gnu/libuuid.so.1.3.0
+7f8f9587b000-7f8f9587c000 rw-p 00006000 07:00 1497                       /lib/x86_64-linux-gnu/libuuid.so.1.3.0
+7f8f9587c000-7f8f958a7000 r-xp 00000000 07:08 809                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgraphite2.so.3.0.1
+7f8f958a7000-7f8f95aa6000 ---p 0002b000 07:08 809                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgraphite2.so.3.0.1
+7f8f95aa6000-7f8f95aa8000 r--p 0002a000 07:08 809                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgraphite2.so.3.0.1
+7f8f95aa8000-7f8f95aa9000 rw-p 0002c000 07:08 809                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgraphite2.so.3.0.1
+7f8f95aa9000-7f8f95aae000 r-xp 00000000 07:08 682                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+7f8f95aae000-7f8f95cad000 ---p 00005000 07:08 682                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+7f8f95cad000-7f8f95cae000 r--p 00004000 07:08 682                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+7f8f95cae000-7f8f95caf000 rw-p 00005000 07:08 682                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+7f8f95caf000-7f8f95cb1000 r-xp 00000000 07:08 671                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7f8f95cb1000-7f8f95eb1000 ---p 00002000 07:08 671                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7f8f95eb1000-7f8f95eb2000 r--p 00002000 07:08 671                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7f8f95eb2000-7f8f95eb3000 rw-p 00003000 07:08 671                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+7f8f95eb3000-7f8f95efa000 r-xp 00000000 07:00 1372                       /lib/x86_64-linux-gnu/libblkid.so.1.1.0
+7f8f95efa000-7f8f960fa000 ---p 00047000 07:00 1372                       /lib/x86_64-linux-gnu/libblkid.so.1.1.0
+7f8f960fa000-7f8f960fe000 r--p 00047000 07:00 1372                       /lib/x86_64-linux-gnu/libblkid.so.1.1.0
+7f8f960fe000-7f8f960ff000 rw-p 0004b000 07:00 1372                       /lib/x86_64-linux-gnu/libblkid.so.1.1.0
+7f8f960ff000-7f8f96100000 rw-p 00000000 00:00 0 
+7f8f96100000-7f8f96106000 r-xp 00000000 07:08 746                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libdatrie.so.1.3.3
+7f8f96106000-7f8f96305000 ---p 00006000 07:08 746                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libdatrie.so.1.3.3
+7f8f96305000-7f8f96306000 r--p 00005000 07:08 746                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libdatrie.so.1.3.3
+7f8f96306000-7f8f96307000 rw-p 00006000 07:08 746                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libdatrie.so.1.3.3
+7f8f96307000-7f8f963a3000 r-xp 00000000 07:08 825                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libharfbuzz.so.0.10702.0
+7f8f963a3000-7f8f965a3000 ---p 0009c000 07:08 825                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libharfbuzz.so.0.10702.0
+7f8f965a3000-7f8f965a4000 r--p 0009c000 07:08 825                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libharfbuzz.so.0.10702.0
+7f8f965a4000-7f8f965a5000 rw-p 0009d000 07:08 825                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libharfbuzz.so.0.10702.0
+7f8f965a5000-7f8f965b1000 r-xp 00000000 07:08 968                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libxcb-render.so.0.0.0
+7f8f965b1000-7f8f967b0000 ---p 0000c000 07:08 968                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libxcb-render.so.0.0.0
+7f8f967b0000-7f8f967b1000 r--p 0000b000 07:08 968                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libxcb-render.so.0.0.0
+7f8f967b1000-7f8f967b2000 rw-p 0000c000 07:08 968                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libxcb-render.so.0.0.0
+7f8f967b2000-7f8f967b4000 r-xp 00000000 07:08 972                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libxcb-shm.so.0.0.0
+7f8f967b4000-7f8f969b3000 ---p 00002000 07:08 972                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libxcb-shm.so.0.0.0
+7f8f969b3000-7f8f969b4000 r--p 00001000 07:08 972                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libxcb-shm.so.0.0.0
+7f8f969b4000-7f8f969b5000 rw-p 00002000 07:08 972                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libxcb-shm.so.0.0.0
+7f8f969b5000-7f8f969e6000 r-xp 00000000 07:08 908                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libpng16.so.16.34.0
+7f8f969e6000-7f8f96be5000 ---p 00031000 07:08 908                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libpng16.so.16.34.0
+7f8f96be5000-7f8f96be6000 r--p 00030000 07:08 908                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libpng16.so.16.34.0
+7f8f96be6000-7f8f96be7000 rw-p 00031000 07:08 908                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libpng16.so.16.34.0
+7f8f96be7000-7f8f96c84000 r-xp 00000000 07:08 904                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libpixman-1.so.0.34.0
+7f8f96c84000-7f8f96e83000 ---p 0009d000 07:08 904                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libpixman-1.so.0.34.0
+7f8f96e83000-7f8f96e8b000 r--p 0009c000 07:08 904                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libpixman-1.so.0.34.0
+7f8f96e8b000-7f8f96e8c000 rw-p 000a4000 07:08 904                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libpixman-1.so.0.34.0
+7f8f96e8c000-7f8f96eb2000 r-xp 00000000 07:08 976                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+7f8f96eb2000-7f8f970b2000 ---p 00026000 07:08 976                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+7f8f970b2000-7f8f970b3000 r--p 00026000 07:08 976                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+7f8f970b3000-7f8f970b4000 rw-p 00027000 07:08 976                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+7f8f970b4000-7f8f970bd000 r-xp 00000000 07:08 702                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7f8f970bd000-7f8f972bc000 ---p 00009000 07:08 702                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7f8f972bc000-7f8f972bd000 r--p 00008000 07:08 702                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7f8f972bd000-7f8f972be000 rw-p 00009000 07:08 702                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXrender.so.1.3.0
+7f8f972be000-7f8f972ed000 r-xp 00000000 07:08 199                        /snap/dbeaver-ce/108/lib/x86_64-linux-gnu/libexpat.so.1.6.7
+7f8f972ed000-7f8f974ed000 ---p 0002f000 07:08 199                        /snap/dbeaver-ce/108/lib/x86_64-linux-gnu/libexpat.so.1.6.7
+7f8f974ed000-7f8f974ef000 r--p 0002f000 07:08 199                        /snap/dbeaver-ce/108/lib/x86_64-linux-gnu/libexpat.so.1.6.7
+7f8f974ef000-7f8f974f0000 rw-p 00031000 07:08 199                        /snap/dbeaver-ce/108/lib/x86_64-linux-gnu/libexpat.so.1.6.7
+7f8f974f0000-7f8f97560000 r-xp 00000000 07:00 1467                       /lib/x86_64-linux-gnu/libpcre.so.3.13.3
+7f8f97560000-7f8f97760000 ---p 00070000 07:00 1467                       /lib/x86_64-linux-gnu/libpcre.so.3.13.3
+7f8f97760000-7f8f97761000 r--p 00070000 07:00 1467                       /lib/x86_64-linux-gnu/libpcre.so.3.13.3
+7f8f97761000-7f8f97762000 rw-p 00071000 07:00 1467                       /lib/x86_64-linux-gnu/libpcre.so.3.13.3
+7f8f97762000-7f8f97769000 r-xp 00000000 07:08 770                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+7f8f97769000-7f8f97968000 ---p 00007000 07:08 770                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+7f8f97968000-7f8f97969000 r--p 00006000 07:08 770                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+7f8f97969000-7f8f9796a000 rw-p 00007000 07:08 770                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libffi.so.6.0.4
+7f8f9796a000-7f8f979bb000 r-xp 00000000 07:00 1434                       /lib/x86_64-linux-gnu/libmount.so.1.1.0
+7f8f979bb000-7f8f97bba000 ---p 00051000 07:00 1434                       /lib/x86_64-linux-gnu/libmount.so.1.1.0
+7f8f97bba000-7f8f97bbc000 r--p 00050000 07:00 1434                       /lib/x86_64-linux-gnu/libmount.so.1.1.0
+7f8f97bbc000-7f8f97bbd000 rw-p 00052000 07:00 1434                       /lib/x86_64-linux-gnu/libmount.so.1.1.0
+7f8f97bbd000-7f8f97bbe000 rw-p 00000000 00:00 0 
+7f8f97bbe000-7f8f97bd5000 r-xp 00000000 07:00 1474                       /lib/x86_64-linux-gnu/libresolv-2.27.so
+7f8f97bd5000-7f8f97dd4000 ---p 00017000 07:00 1474                       /lib/x86_64-linux-gnu/libresolv-2.27.so
+7f8f97dd4000-7f8f97dd5000 r--p 00016000 07:00 1474                       /lib/x86_64-linux-gnu/libresolv-2.27.so
+7f8f97dd5000-7f8f97dd6000 rw-p 00017000 07:00 1474                       /lib/x86_64-linux-gnu/libresolv-2.27.so
+7f8f97dd6000-7f8f97dd8000 rw-p 00000000 00:00 0 
+7f8f97dd8000-7f8f97dfd000 r-xp 00000000 07:00 1480                       /lib/x86_64-linux-gnu/libselinux.so.1
+7f8f97dfd000-7f8f97ffc000 ---p 00025000 07:00 1480                       /lib/x86_64-linux-gnu/libselinux.so.1
+7f8f97ffc000-7f8f97ffd000 r--p 00024000 07:00 1480                       /lib/x86_64-linux-gnu/libselinux.so.1
+7f8f97ffd000-7f8f97ffe000 rw-p 00025000 07:00 1480                       /lib/x86_64-linux-gnu/libselinux.so.1
+7f8f97ffe000-7f8f98000000 rw-p 00000000 00:00 0 
+7f8f98000000-7f8f98021000 rw-p 00000000 00:00 0 
+7f8f98021000-7f8f9c000000 ---p 00000000 00:00 0 
+7f8f9c05e000-7f8f9c062000 ---p 00000000 00:00 0 
+7f8f9c062000-7f8f9c15f000 rw-p 00000000 00:00 0 
+7f8f9c15f000-7f8f9c162000 r-xp 00000000 07:08 800                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.5600.4
+7f8f9c162000-7f8f9c361000 ---p 00003000 07:08 800                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.5600.4
+7f8f9c361000-7f8f9c362000 r--p 00002000 07:08 800                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.5600.4
+7f8f9c362000-7f8f9c363000 rw-p 00003000 07:08 800                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgmodule-2.0.so.0.5600.4
+7f8f9c363000-7f8f9c36b000 r-xp 00000000 07:08 942                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libthai.so.0.3.0
+7f8f9c36b000-7f8f9c56a000 ---p 00008000 07:08 942                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libthai.so.0.3.0
+7f8f9c56a000-7f8f9c56b000 r--p 00007000 07:08 942                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libthai.so.0.3.0
+7f8f9c56b000-7f8f9c56c000 rw-p 00008000 07:08 942                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libthai.so.0.3.0
+7f8f9c56c000-7f8f9c619000 r-xp 00000000 07:08 780                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libfreetype.so.6.15.0
+7f8f9c619000-7f8f9c818000 ---p 000ad000 07:08 780                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libfreetype.so.6.15.0
+7f8f9c818000-7f8f9c81f000 r--p 000ac000 07:08 780                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libfreetype.so.6.15.0
+7f8f9c81f000-7f8f9c820000 rw-p 000b3000 07:08 780                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libfreetype.so.6.15.0
+7f8f9c820000-7f8f9c834000 r-xp 00000000 07:08 898                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libpangoft2-1.0.so.0.4000.14
+7f8f9c834000-7f8f9ca34000 ---p 00014000 07:08 898                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libpangoft2-1.0.so.0.4000.14
+7f8f9ca34000-7f8f9ca35000 r--p 00014000 07:08 898                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libpangoft2-1.0.so.0.4000.14
+7f8f9ca35000-7f8f9ca36000 rw-p 00015000 07:08 898                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libpangoft2-1.0.so.0.4000.14
+7f8f9ca36000-7f8f9cb29000 r-xp 00000000 07:08 766                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libepoxy.so.0.0.0
+7f8f9cb29000-7f8f9cd29000 ---p 000f3000 07:08 766                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libepoxy.so.0.0.0
+7f8f9cd29000-7f8f9cd30000 r--p 000f3000 07:08 766                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libepoxy.so.0.0.0
+7f8f9cd30000-7f8f9cd37000 rw-p 000fa000 07:08 766                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libepoxy.so.0.0.0
+7f8f9cd37000-7f8f9ce4f000 r-xp 00000000 07:08 734                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libcairo.so.2.11510.0
+7f8f9ce4f000-7f8f9d04e000 ---p 00118000 07:08 734                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libcairo.so.2.11510.0
+7f8f9d04e000-7f8f9d051000 r--p 00117000 07:08 734                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libcairo.so.2.11510.0
+7f8f9d051000-7f8f9d053000 rw-p 0011a000 07:08 734                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libcairo.so.2.11510.0
+7f8f9d053000-7f8f9d054000 rw-p 00000000 00:00 0 
+7f8f9d054000-7f8f9d065000 r-xp 00000000 07:08 684                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+7f8f9d065000-7f8f9d264000 ---p 00011000 07:08 684                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+7f8f9d264000-7f8f9d265000 r--p 00010000 07:08 684                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+7f8f9d265000-7f8f9d266000 rw-p 00011000 07:08 684                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+7f8f9d266000-7f8f9d399000 r-xp 00000000 07:08 669                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0
+7f8f9d399000-7f8f9d599000 ---p 00133000 07:08 669                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0
+7f8f9d599000-7f8f9d59a000 r--p 00133000 07:08 669                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0
+7f8f9d59a000-7f8f9d59e000 rw-p 00134000 07:08 669                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libX11.so.6.3.0
+7f8f9d59e000-7f8f9d5ab000 r-xp 00000000 07:08 952                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libwayland-client.so.0.3.0
+7f8f9d5ab000-7f8f9d7aa000 ---p 0000d000 07:08 952                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libwayland-client.so.0.3.0
+7f8f9d7aa000-7f8f9d7ac000 r--p 0000c000 07:08 952                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libwayland-client.so.0.3.0
+7f8f9d7ac000-7f8f9d7ad000 rw-p 0000e000 07:08 952                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libwayland-client.so.0.3.0
+7f8f9d7ad000-7f8f9d7ae000 r-xp 00000000 07:08 956                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libwayland-egl.so.1.0.0
+7f8f9d7ae000-7f8f9d9ad000 ---p 00001000 07:08 956                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libwayland-egl.so.1.0.0
+7f8f9d9ad000-7f8f9d9ae000 r--p 00000000 07:08 956                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libwayland-egl.so.1.0.0
+7f8f9d9ae000-7f8f9d9af000 rw-p 00001000 07:08 956                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libwayland-egl.so.1.0.0
+7f8f9d9af000-7f8f9d9b3000 r-xp 00000000 07:08 954                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libwayland-cursor.so.0.0.0
+7f8f9d9b3000-7f8f9dbb2000 ---p 00004000 07:08 954                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libwayland-cursor.so.0.0.0
+7f8f9dbb2000-7f8f9dbb3000 r--p 00003000 07:08 954                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libwayland-cursor.so.0.0.0
+7f8f9dbb3000-7f8f9dbb7000 rw-p 00004000 07:08 954                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libwayland-cursor.so.0.0.0
+7f8f9dbb7000-7f8f9dbf4000 r-xp 00000000 07:08 978                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libxkbcommon.so.0.0.0
+7f8f9dbf4000-7f8f9ddf3000 ---p 0003d000 07:08 978                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libxkbcommon.so.0.0.0
+7f8f9ddf3000-7f8f9ddf5000 r--p 0003c000 07:08 978                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libxkbcommon.so.0.0.0
+7f8f9ddf5000-7f8f9ddf6000 rw-p 0003e000 07:08 978                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libxkbcommon.so.0.0.0
+7f8f9ddf6000-7f8f9ddfb000 r-xp 00000000 07:08 686                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+7f8f9ddfb000-7f8f9dffa000 ---p 00005000 07:08 686                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+7f8f9dffa000-7f8f9dffb000 r--p 00004000 07:08 686                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+7f8f9dffb000-7f8f9dffc000 rw-p 00005000 07:08 686                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXfixes.so.3.1.0
+7f8f9dffc000-7f8f9dffe000 r-xp 00000000 07:08 680                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXdamage.so.1.1.0
+7f8f9dffe000-7f8f9e1fd000 ---p 00002000 07:08 680                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXdamage.so.1.1.0
+7f8f9e1fd000-7f8f9e1fe000 r--p 00001000 07:08 680                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXdamage.so.1.1.0
+7f8f9e1fe000-7f8f9e1ff000 rw-p 00002000 07:08 680                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXdamage.so.1.1.0
+7f8f9e1ff000-7f8f9e201000 r-xp 00000000 07:08 676                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXcomposite.so.1.0.0
+7f8f9e201000-7f8f9e400000 ---p 00002000 07:08 676                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXcomposite.so.1.0.0
+7f8f9e400000-7f8f9e401000 r--p 00001000 07:08 676                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXcomposite.so.1.0.0
+7f8f9e401000-7f8f9e402000 rw-p 00002000 07:08 676                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXcomposite.so.1.0.0
+7f8f9e402000-7f8f9e40b000 r-xp 00000000 07:08 678                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+7f8f9e40b000-7f8f9e60a000 ---p 00009000 07:08 678                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+7f8f9e60a000-7f8f9e60b000 r--p 00008000 07:08 678                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+7f8f9e60b000-7f8f9e60c000 rw-p 00009000 07:08 678                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXcursor.so.1.0.2
+7f8f9e60c000-7f8f9e616000 r-xp 00000000 07:08 700                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXrandr.so.2.2.0
+7f8f9e616000-7f8f9e815000 ---p 0000a000 07:08 700                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXrandr.so.2.2.0
+7f8f9e815000-7f8f9e816000 r--p 00009000 07:08 700                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXrandr.so.2.2.0
+7f8f9e816000-7f8f9e817000 rw-p 0000a000 07:08 700                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXrandr.so.2.2.0
+7f8f9e817000-7f8f9e826000 r-xp 00000000 07:08 690                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+7f8f9e826000-7f8f9ea25000 ---p 0000f000 07:08 690                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+7f8f9ea25000-7f8f9ea26000 r--p 0000e000 07:08 690                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+7f8f9ea26000-7f8f9ea27000 rw-p 0000f000 07:08 690                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXi.so.6.1.0
+7f8f9ea27000-7f8f9ea29000 r-xp 00000000 07:08 692                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXinerama.so.1.0.0
+7f8f9ea29000-7f8f9ec28000 ---p 00002000 07:08 692                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXinerama.so.1.0.0
+7f8f9ec28000-7f8f9ec29000 r--p 00001000 07:08 692                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXinerama.so.1.0.0
+7f8f9ec29000-7f8f9ec2a000 rw-p 00002000 07:08 692                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libXinerama.so.1.0.0
+7f8f9ec2a000-7f8f9ec68000 r-xp 00000000 07:08 772                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libfontconfig.so.1.10.1
+7f8f9ec68000-7f8f9ee68000 ---p 0003e000 07:08 772                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libfontconfig.so.1.10.1
+7f8f9ee68000-7f8f9ee6a000 r--p 0003e000 07:08 772                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libfontconfig.so.1.10.1
+7f8f9ee6a000-7f8f9ee6f000 rw-p 00040000 07:08 772                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libfontconfig.so.1.10.1
+7f8f9ee6f000-7f8f9ef83000 r-xp 00000000 07:08 798                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4
+7f8f9ef83000-7f8f9f183000 ---p 00114000 07:08 798                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4
+7f8f9f183000-7f8f9f184000 r--p 00114000 07:08 798                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4
+7f8f9f184000-7f8f9f185000 rw-p 00115000 07:08 798                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libglib-2.0.so.0.5600.4
+7f8f9f185000-7f8f9f186000 rw-p 00000000 00:00 0 
+7f8f9f186000-7f8f9f1d8000 r-xp 00000000 07:08 806                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4
+7f8f9f1d8000-7f8f9f3d8000 ---p 00052000 07:08 806                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4
+7f8f9f3d8000-7f8f9f3d9000 r--p 00052000 07:08 806                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4
+7f8f9f3d9000-7f8f9f3da000 rw-p 00053000 07:08 806                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgobject-2.0.so.0.5600.4
+7f8f9f3da000-7f8f9f570000 r-xp 00000000 07:08 794                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.5600.4
+7f8f9f570000-7f8f9f76f000 ---p 00196000 07:08 794                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.5600.4
+7f8f9f76f000-7f8f9f776000 r--p 00195000 07:08 794                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.5600.4
+7f8f9f776000-7f8f9f777000 rw-p 0019c000 07:08 794                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgio-2.0.so.0.5600.4
+7f8f9f777000-7f8f9f779000 rw-p 00000000 00:00 0 
+7f8f9f779000-7f8f9f77f000 r-xp 00000000 07:08 732                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libcairo-gobject.so.2.11510.0
+7f8f9f77f000-7f8f9f97f000 ---p 00006000 07:08 732                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libcairo-gobject.so.2.11510.0
+7f8f9f97f000-7f8f9f981000 r--p 00006000 07:08 732                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libcairo-gobject.so.2.11510.0
+7f8f9f981000-7f8f9f982000 rw-p 00008000 07:08 732                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libcairo-gobject.so.2.11510.0
+7f8f9f982000-7f8f9f9a4000 r-xp 00000000 07:08 788                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so.0.3611.0
+7f8f9f9a4000-7f8f9fba4000 ---p 00022000 07:08 788                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so.0.3611.0
+7f8f9fba4000-7f8f9fba5000 r--p 00022000 07:08 788                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so.0.3611.0
+7f8f9fba5000-7f8f9fba6000 rw-p 00023000 07:08 788                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so.0.3611.0
+7f8f9fba6000-7f8f9fbf0000 r-xp 00000000 07:08 894                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libpango-1.0.so.0.4000.14
+7f8f9fbf0000-7f8f9fdef000 ---p 0004a000 07:08 894                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libpango-1.0.so.0.4000.14
+7f8f9fdef000-7f8f9fdf2000 r--p 00049000 07:08 894                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libpango-1.0.so.0.4000.14
+7f8f9fdf2000-7f8f9fdf3000 rw-p 0004c000 07:08 894                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libpango-1.0.so.0.4000.14
+7f8f9fdf3000-7f8f9fdff000 r-xp 00000000 07:08 896                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so.0.4000.14
+7f8f9fdff000-7f8f9fffe000 ---p 0000c000 07:08 896                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so.0.4000.14
+7f8f9fffe000-7f8f9ffff000 r--p 0000b000 07:08 896                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so.0.4000.14
+7f8f9ffff000-7f8fa0000000 rw-p 0000c000 07:08 896                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libpangocairo-1.0.so.0.4000.14
+7f8fa0000000-7f8fa0021000 rw-p 00000000 00:00 0 
+7f8fa0021000-7f8fa4000000 ---p 00000000 00:00 0 
+7f8fa4000000-7f8fa427b000 rw-p 00000000 00:00 0 
+7f8fa427b000-7f8fa8000000 ---p 00000000 00:00 0 
+7f8fa8000000-7f8fa88b1000 rw-p 00000000 00:00 0 
+7f8fa88b1000-7f8fac000000 ---p 00000000 00:00 0 
+7f8fac000000-7f8fac021000 rw-p 00000000 00:00 0 
+7f8fac021000-7f8fb0000000 ---p 00000000 00:00 0 
+7f8fb0000000-7f8fb0021000 rw-p 00000000 00:00 0 
+7f8fb0021000-7f8fb4000000 ---p 00000000 00:00 0 
+7f8fb4000000-7f8fb5165000 rw-p 00000000 00:00 0 
+7f8fb5165000-7f8fb8000000 ---p 00000000 00:00 0 
+7f8fb8000000-7f8fb8021000 rw-p 00000000 00:00 0 
+7f8fb8021000-7f8fbc000000 ---p 00000000 00:00 0 
+7f8fbc000000-7f8fbc021000 rw-p 00000000 00:00 0 
+7f8fbc021000-7f8fc0000000 ---p 00000000 00:00 0 
+7f8fc0000000-7f8fc0021000 rw-p 00000000 00:00 0 
+7f8fc0021000-7f8fc4000000 ---p 00000000 00:00 0 
+7f8fc4000000-7f8fc40b7000 rw-p 00000000 00:00 0 
+7f8fc40b7000-7f8fc8000000 ---p 00000000 00:00 0 
+7f8fc8000000-7f8fc8021000 rw-p 00000000 00:00 0 
+7f8fc8021000-7f8fcc000000 ---p 00000000 00:00 0 
+7f8fcc0b7000-7f8fcc0b8000 r--s 00000000 fd:02 6816957                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/d49c3d119d88c50f7c6f05a2ace0c5f8-le64.cache-7
+7f8fcc0b8000-7f8fcc0bc000 r--s 00000000 fd:02 6816956                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/c1372cdf9845b14b3eaf245617bc81f7-le64.cache-7
+7f8fcc0bc000-7f8fcc0c0000 r--s 00000000 fd:02 6816955                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/d39669aa55fa4cac71c41c26f72de401-le64.cache-7
+7f8fcc0c0000-7f8fcc0c1000 r--s 00000000 fd:02 12977399                   /home/andre/.cache/fontconfig/2736766d4907c6828b9382ebdbe3064b-le64.cache-7
+7f8fcc0c1000-7f8fcc0db000 r--s 00000000 fd:02 12984005                   /home/andre/.cache/fontconfig/123d59b33ddb0e7c76bb24004bd5cfac-le64.cache-7
+7f8fcc0db000-7f8fcc0dd000 r--s 00000000 fd:02 12977397                   /home/andre/.cache/fontconfig/3f821257dd33660ba7bbb45c32deb84c-le64.cache-7
+7f8fcc0dd000-7f8fcc0e0000 r--s 00000000 fd:02 6816952                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/131ab5cc1583381c4f7ce0194912c56d-le64.cache-7
+7f8fcc0e0000-7f8fcc0e1000 r--s 00000000 fd:02 6816950                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/26078b1cf62d7535e9fc9c56a8803883-le64.cache-7
+7f8fcc0e1000-7f8fcc0e2000 r--s 00000000 fd:02 6816949                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/ac68f755438cc3dc5a526084839fc7ca-le64.cache-7
+7f8fcc0e2000-7f8fcc0e3000 r--s 00000000 fd:02 6816948                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/f951a6bc01c50d58ac4af16a0108457e-le64.cache-7
+7f8fcc0e3000-7f8fcc0e4000 r--s 00000000 fd:02 6816947                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/8cab66d8f642305e525ba3e322d0979c-le64.cache-7
+7f8fcc0e4000-7f8fcc0e5000 r--s 00000000 fd:02 6816946                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/6b4d77390f008fe4d7fb61c915674aee-le64.cache-7
+7f8fcc0e5000-7f8fcc0e8000 r--s 00000000 fd:02 6816945                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/bf4088b6c6290c8d6936483b844e6a40-le64.cache-7
+7f8fcc0e8000-7f8fcc0e9000 r--s 00000000 fd:02 6816944                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/f132fa2327207a6ac3298c0518879731-le64.cache-7
+7f8fcc0e9000-7f8fcc0ea000 r--s 00000000 fd:02 12991322                   /home/andre/.cache/fontconfig/6fcb01a03a016cc71057b587cdea6709-le64.cache-7
+7f8fcc0ea000-7f8fcc10d000 r--s 00000000 fd:02 12982554                   /home/andre/.cache/fontconfig/8810ee51c158c7bfaed726592ffe4eb9-le64.cache-7
+7f8fcc191000-7f8fcc27c000 r-xp 00000000 07:08 784                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgdk-3.so.0.2200.30
+7f8fcc27c000-7f8fcc47c000 ---p 000eb000 07:08 784                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgdk-3.so.0.2200.30
+7f8fcc47c000-7f8fcc483000 r--p 000eb000 07:08 784                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgdk-3.so.0.2200.30
+7f8fcc483000-7f8fcc486000 rw-p 000f2000 07:08 784                        /snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/libgdk-3.so.0.2200.30
+7f8fcc486000-7f8fcc487000 rw-p 00000000 00:00 0 
+7f8fcc487000-7f8fcc497000 r-xp 00000000 07:08 2514                       /snap/dbeaver-ce/108/usr/share/dbeaver/plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.2.0.v20200915-1442/eclipse_11201.so
+7f8fcc497000-7f8fcc696000 ---p 00010000 07:08 2514                       /snap/dbeaver-ce/108/usr/share/dbeaver/plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.2.0.v20200915-1442/eclipse_11201.so
+7f8fcc696000-7f8fcc697000 r--p 0000f000 07:08 2514                       /snap/dbeaver-ce/108/usr/share/dbeaver/plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.2.0.v20200915-1442/eclipse_11201.so
+7f8fcc697000-7f8fcc698000 rw-p 00010000 07:08 2514                       /snap/dbeaver-ce/108/usr/share/dbeaver/plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.2.0.v20200915-1442/eclipse_11201.so
+7f8fcc698000-7f8fcc6ae000 r-xp 00000000 07:08 2328                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libnet.so
+7f8fcc6ae000-7f8fcc8ad000 ---p 00016000 07:08 2328                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libnet.so
+7f8fcc8ad000-7f8fcc8ae000 r--p 00015000 07:08 2328                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libnet.so
+7f8fcc8ae000-7f8fcc8af000 rw-p 00016000 07:08 2328                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libnet.so
+7f8fcc8af000-7f8fcc8be000 r-xp 00000000 07:08 2329                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libnio.so
+7f8fcc8be000-7f8fccabe000 ---p 0000f000 07:08 2329                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libnio.so
+7f8fccabe000-7f8fccabf000 r--p 0000f000 07:08 2329                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libnio.so
+7f8fccabf000-7f8fccac0000 rw-p 00010000 07:08 2329                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libnio.so
+7f8fccac0000-7f8fccac4000 ---p 00000000 00:00 0 
+7f8fccac4000-7f8fccbc1000 rw-p 00000000 00:00 0 
+7f8fccbc1000-7f8fccbc2000 ---p 00000000 00:00 0 
+7f8fccbc2000-7f8fcccc3000 rw-p 00000000 00:00 0 
+7f8fcccc3000-7f8fcccc7000 ---p 00000000 00:00 0 
+7f8fcccc7000-7f8fccdc4000 rw-p 00000000 00:00 0 
+7f8fccdc4000-7f8fccdc8000 ---p 00000000 00:00 0 
+7f8fccdc8000-7f8fccec5000 rw-p 00000000 00:00 0 
+7f8fccec5000-7f8fccec9000 ---p 00000000 00:00 0 
+7f8fccec9000-7f8fccfc6000 rw-p 00000000 00:00 0 
+7f8fccfc6000-7f8fccfca000 ---p 00000000 00:00 0 
+7f8fccfca000-7f8fcd0c7000 rw-p 00000000 00:00 0 
+7f8fcd0c7000-7f8fcd0cb000 ---p 00000000 00:00 0 
+7f8fcd0cb000-7f8fcd1c8000 rw-p 00000000 00:00 0 
+7f8fcd1c8000-7f8fcd2f8000 r--p 00000000 07:0b 542                        /snap/dbeaver-ce/108/gnome-platform/usr/lib/locale/aa_DJ.utf8/LC_COLLATE
+7f8fcd2f8000-7f8fcd2fc000 ---p 00000000 00:00 0 
+7f8fcd2fc000-7f8fcd3f9000 rw-p 00000000 00:00 0 
+7f8fcd3f9000-7f8fcd3fd000 ---p 00000000 00:00 0 
+7f8fcd3fd000-7f8fcd4fa000 rw-p 00000000 00:00 0 
+7f8fcd4fa000-7f8fcd4fb000 ---p 00000000 00:00 0 
+7f8fcd4fb000-7f8fcddfc000 rw-p 00000000 00:00 0 
+7f8fcddfc000-7f8fcddfd000 ---p 00000000 00:00 0 
+7f8fcddfd000-7f8fcdefe000 rw-p 00000000 00:00 0 
+7f8fcdefe000-7f8fcdeff000 ---p 00000000 00:00 0 
+7f8fcdeff000-7f8fd0000000 rw-p 00000000 00:00 0 
+7f8fd0000000-7f8fd0021000 rw-p 00000000 00:00 0 
+7f8fd0021000-7f8fd4000000 ---p 00000000 00:00 0 
+7f8fd4000000-7f8fd4027000 rw-p 00000000 00:00 0 
+7f8fd4027000-7f8fd8000000 ---p 00000000 00:00 0 
+7f8fd8000000-7f8fd8026000 rw-p 00000000 00:00 0 
+7f8fd8026000-7f8fdc000000 ---p 00000000 00:00 0 
+7f8fdc000000-7f8fdc001000 r--s 00000000 fd:02 12977392                   /home/andre/.cache/fontconfig/b887eea8f1b96e1d899b44ed6681fc27-le64.cache-7
+7f8fdc001000-7f8fdc002000 r--s 00000000 fd:02 6816943                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/860639f272b8b4b3094f9e399e41bccd-le64.cache-7
+7f8fdc002000-7f8fdc003000 r--s 00000000 fd:02 6816942                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/5d33f04e74a97395cf88bbd83847f1f1-le64.cache-7
+7f8fdc003000-7f8fdc004000 r--s 00000000 fd:02 6816941                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/df893b4576ad6107f9397134092c4059-le64.cache-7
+7f8fdc004000-7f8fdc005000 r--s 00000000 fd:02 6816940                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/1e1e03b57ed9f0c723c5aeafda46c3fb-le64.cache-7
+7f8fdc005000-7f8fdc006000 r--s 00000000 fd:02 6816939                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/900402270e15d763a6e008bb2d4c7686-le64.cache-7
+7f8fdc006000-7f8fdc007000 r--s 00000000 fd:02 12977391                   /home/andre/.cache/fontconfig/47f48679023f44a4d1e44699a69464f6-le64.cache-7
+7f8fdc007000-7f8fdc008000 r--s 00000000 fd:02 6816938                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/2881ed3fd21ca306ddad6f9b0dd3189f-le64.cache-7
+7f8fdc008000-7f8fdc009000 r--s 00000000 fd:02 6816937                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/3c3fb04d32a5211b073874b125d29701-le64.cache-7
+7f8fdc009000-7f8fdc00b000 r--s 00000000 fd:02 12990688                   /home/andre/.cache/fontconfig/3e9ca894d7ccd8b9fedb236c4f3f7c4e-le64.cache-7
+7f8fdc00b000-7f8fdc00d000 r--s 00000000 fd:02 12990290                   /home/andre/.cache/fontconfig/5535e07303e0edee0923e77e4e59b69c-le64.cache-7
+7f8fdc00d000-7f8fdc00f000 r--s 00000000 fd:02 12990255                   /home/andre/.cache/fontconfig/cf759820c416606818fc74e5e9991313-le64.cache-7
+7f8fdc00f000-7f8fdc011000 r--s 00000000 fd:02 6816936                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/d3379abda271c4acd2ad0c01f565d0b0-le64.cache-7
+7f8fdc011000-7f8fdc019000 r--s 00000000 fd:02 12982615                   /home/andre/.cache/fontconfig/e34b99a1e22e6f7451938fb9934274e6-le64.cache-7
+7f8fdc019000-7f8fdc01a000 r--s 00000000 fd:02 6816935                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/22f06f3be2d16d058da85b73ae1dc5b1-le64.cache-7
+7f8fdc01a000-7f8fdc01c000 r--s 00000000 fd:02 6816934                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/047de28567331e65817d0bda79107a40-le64.cache-7
+7f8fdc01c000-7f8fdc01d000 r--s 00000000 fd:02 12977383                   /home/andre/.cache/fontconfig/b14e78aa9400ae7a28193faee1d62280-le64.cache-7
+7f8fdc01d000-7f8fdc02c000 r--s 00000000 fd:02 6816933                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/7ee6df7a8311986241317a58487e0145-le64.cache-7
+7f8fdc02c000-7f8fdc034000 r--s 00000000 fd:02 6816932                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/6ee3103884cce7b2fe6f32eba9089175-le64.cache-7
+7f8fdc034000-7f8fdc036000 r--s 00000000 fd:02 6816930                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/cc4435afd06e20625c417ffcddec4f51-le64.cache-7
+7f8fdc036000-7f8fdc049000 r--s 00000000 fd:02 6816929                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/614d1caaa4d7914789410f6367de37ca-le64.cache-7
+7f8fdc049000-7f8fdc04a000 r--s 00000000 fd:02 6816928                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/0f80fa86029ae75a63f21d682b864529-le64.cache-7
+7f8fdc04a000-7f8fdc06b000 r--s 00000000 07:0b 27392                      /snap/dbeaver-ce/108/gnome-platform/usr/share/mime/mime.cache
+7f8fdc06b000-7f8fdc46f000 rw-p 00000000 00:00 0 
+7f8fdc46f000-7f8fdc470000 ---p 00000000 00:00 0 
+7f8fdc470000-7f8fdc571000 rw-p 00000000 00:00 0 
+7f8fdc571000-7f8fdc572000 ---p 00000000 00:00 0 
+7f8fdc572000-7f8fdc7e7000 rw-p 00000000 00:00 0 
+7f8fdc7e7000-7f8fdd673000 ---p 00000000 00:00 0 
+7f8fdd673000-7f8fdd7e7000 rw-p 00000000 00:00 0 
+7f8fdd7e7000-7f8fde673000 ---p 00000000 00:00 0 
+7f8fde673000-7f8fde6a2000 rw-p 00000000 00:00 0 
+7f8fde6a2000-7f8fde873000 ---p 00000000 00:00 0 
+7f8fde873000-7f8fde8a2000 rw-p 00000000 00:00 0 
+7f8fde8a2000-7f8fdea73000 ---p 00000000 00:00 0 
+7f8fdea73000-7f8fdeaa2000 rw-p 00000000 00:00 0 
+7f8fdeaa2000-7f8fdec73000 ---p 00000000 00:00 0 
+7f8fdec73000-7f8fdf077000 rw-p 00000000 00:00 0 
+7f8fdf077000-7f8fdf078000 ---p 00000000 00:00 0 
+7f8fdf078000-7f8fdf17e000 rw-p 00000000 00:00 0 
+7f8fdf17e000-7f8fdf264000 ---p 00000000 00:00 0 
+7f8fdf264000-7f8fdf4d4000 rwxp 00000000 00:00 0 
+7f8fdf4d4000-7f8fdf7f4000 ---p 00000000 00:00 0 
+7f8fdf7f4000-7f8fe0204000 rwxp 00000000 00:00 0 
+7f8fe0204000-7f8fe6d2c000 ---p 00000000 00:00 0 
+7f8fe6d2c000-7f8fe6f9c000 rwxp 00000000 00:00 0 
+7f8fe6f9c000-7f8fee264000 ---p 00000000 00:00 0 
+7f8fee264000-7f8fefbe6000 r--s 00000000 07:08 2336                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/modules
+7f8fefbe6000-7f8fefbed000 r-xp 00000000 07:08 2335                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libzip.so
+7f8fefbed000-7f8fefdec000 ---p 00007000 07:08 2335                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libzip.so
+7f8fefdec000-7f8fefded000 r--p 00006000 07:08 2335                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libzip.so
+7f8fefded000-7f8fefdee000 rw-p 00007000 07:08 2335                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libzip.so
+7f8fefdee000-7f8fefdf9000 r-xp 00000000 07:00 1451                       /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7f8fefdf9000-7f8fefff8000 ---p 0000b000 07:00 1451                       /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7f8fefff8000-7f8fefff9000 r--p 0000a000 07:00 1451                       /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7f8fefff9000-7f8fefffa000 rw-p 0000b000 07:00 1451                       /lib/x86_64-linux-gnu/libnss_files-2.27.so
+7f8fefffa000-7f8ff0000000 rw-p 00000000 00:00 0 
+7f8ff0000000-7f8ff124a000 rw-p 00000000 00:00 0 
+7f8ff124a000-7f8ff4000000 ---p 00000000 00:00 0 
+7f8ff4000000-7f8ff4005000 r--s 00000000 fd:02 6816927                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/7bbebb41f246c24642924bd8585d5345-le64.cache-7
+7f8ff4005000-7f8ff4008000 r--s 00000000 fd:02 6816926                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/427eb62078a821f08aa6ed364f2467bf-le64.cache-7
+7f8ff4008000-7f8ff400e000 r--s 00000000 fd:02 6816925                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/221930ae9526a9cb8049af2916f03412-le64.cache-7
+7f8ff400e000-7f8ff4013000 r--s 00000000 fd:02 12982874                   /home/andre/.cache/fontconfig/6ba42ae0000f58711b5caaf10d690066-le64.cache-7
+7f8ff4013000-7f8ff4019000 r--s 00000000 fd:02 6816924                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/210c0516121708a580e22e6b1f9a103a-le64.cache-7
+7f8ff4019000-7f8ff404c000 r--p 00000000 07:0b 26580                      /snap/dbeaver-ce/108/gnome-platform/usr/share/locale-langpack/pt_BR/LC_MESSAGES/gtk30-properties.mo
+7f8ff404c000-7f8ff4063000 r--p 00000000 07:0b 26581                      /snap/dbeaver-ce/108/gnome-platform/usr/share/locale-langpack/pt_BR/LC_MESSAGES/gtk30.mo
+7f8ff4063000-7f8ff40f9000 rw-p 00000000 00:00 0 
+7f8ff40f9000-7f8ff41cf000 ---p 00000000 00:00 0 
+7f8ff41cf000-7f8ff41ea000 r-xp 00000000 07:08 2321                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libjimage.so
+7f8ff41ea000-7f8ff43ea000 ---p 0001b000 07:08 2321                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libjimage.so
+7f8ff43ea000-7f8ff43ec000 r--p 0001b000 07:08 2321                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libjimage.so
+7f8ff43ec000-7f8ff43ed000 rw-p 0001d000 07:08 2321                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libjimage.so
+7f8ff43ed000-7f8ff4416000 r-xp 00000000 07:08 2318                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libjava.so
+7f8ff4416000-7f8ff4615000 ---p 00029000 07:08 2318                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libjava.so
+7f8ff4615000-7f8ff4616000 r--p 00028000 07:08 2318                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libjava.so
+7f8ff4616000-7f8ff4617000 rw-p 00029000 07:08 2318                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libjava.so
+7f8ff4617000-7f8ff4618000 rw-p 00000000 00:00 0 
+7f8ff4618000-7f8ff4629000 r-xp 00000000 07:08 2334                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libverify.so
+7f8ff4629000-7f8ff4828000 ---p 00011000 07:08 2334                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libverify.so
+7f8ff4828000-7f8ff482a000 r--p 00010000 07:08 2334                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libverify.so
+7f8ff482a000-7f8ff482b000 rw-p 00012000 07:08 2334                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/libverify.so
+7f8ff482b000-7f8ff4832000 r-xp 00000000 07:00 1476                       /lib/x86_64-linux-gnu/librt-2.27.so
+7f8ff4832000-7f8ff4a31000 ---p 00007000 07:00 1476                       /lib/x86_64-linux-gnu/librt-2.27.so
+7f8ff4a31000-7f8ff4a32000 r--p 00006000 07:00 1476                       /lib/x86_64-linux-gnu/librt-2.27.so
+7f8ff4a32000-7f8ff4a33000 rw-p 00007000 07:00 1476                       /lib/x86_64-linux-gnu/librt-2.27.so
+7f8ff4a33000-7f8ff4bd0000 r-xp 00000000 07:00 1428                       /lib/x86_64-linux-gnu/libm-2.27.so
+7f8ff4bd0000-7f8ff4dcf000 ---p 0019d000 07:00 1428                       /lib/x86_64-linux-gnu/libm-2.27.so
+7f8ff4dcf000-7f8ff4dd0000 r--p 0019c000 07:00 1428                       /lib/x86_64-linux-gnu/libm-2.27.so
+7f8ff4dd0000-7f8ff4dd1000 rw-p 0019d000 07:00 1428                       /lib/x86_64-linux-gnu/libm-2.27.so
+7f8ff4dd1000-7f8ff6023000 r-xp 00000000 07:08 2347                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/server/libjvm.so
+7f8ff6023000-7f8ff6222000 ---p 01252000 07:08 2347                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/server/libjvm.so
+7f8ff6222000-7f8ff62e4000 r--p 01251000 07:08 2347                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/server/libjvm.so
+7f8ff62e4000-7f8ff631f000 rw-p 01313000 07:08 2347                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/server/libjvm.so
+7f8ff631f000-7f8ff6376000 rw-p 00000000 00:00 0 
+7f8ff6376000-7f8ff655d000 r-xp 00000000 07:00 1378                       /lib/x86_64-linux-gnu/libc-2.27.so
+7f8ff655d000-7f8ff675d000 ---p 001e7000 07:00 1378                       /lib/x86_64-linux-gnu/libc-2.27.so
+7f8ff675d000-7f8ff6761000 r--p 001e7000 07:00 1378                       /lib/x86_64-linux-gnu/libc-2.27.so
+7f8ff6761000-7f8ff6763000 rw-p 001eb000 07:00 1378                       /lib/x86_64-linux-gnu/libc-2.27.so
+7f8ff6763000-7f8ff6767000 rw-p 00000000 00:00 0 
+7f8ff6767000-7f8ff676a000 r-xp 00000000 07:00 1395                       /lib/x86_64-linux-gnu/libdl-2.27.so
+7f8ff676a000-7f8ff6969000 ---p 00003000 07:00 1395                       /lib/x86_64-linux-gnu/libdl-2.27.so
+7f8ff6969000-7f8ff696a000 r--p 00002000 07:00 1395                       /lib/x86_64-linux-gnu/libdl-2.27.so
+7f8ff696a000-7f8ff696b000 rw-p 00003000 07:00 1395                       /lib/x86_64-linux-gnu/libdl-2.27.so
+7f8ff696b000-7f8ff697b000 r-xp 00000000 07:08 2304                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/jli/libjli.so
+7f8ff697b000-7f8ff6b7a000 ---p 00010000 07:08 2304                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/jli/libjli.so
+7f8ff6b7a000-7f8ff6b7b000 r--p 0000f000 07:08 2304                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/jli/libjli.so
+7f8ff6b7b000-7f8ff6b7c000 rw-p 00010000 07:08 2304                       /snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/jli/libjli.so
+7f8ff6b7c000-7f8ff6b96000 r-xp 00000000 07:00 1470                       /lib/x86_64-linux-gnu/libpthread-2.27.so
+7f8ff6b96000-7f8ff6d95000 ---p 0001a000 07:00 1470                       /lib/x86_64-linux-gnu/libpthread-2.27.so
+7f8ff6d95000-7f8ff6d96000 r--p 00019000 07:00 1470                       /lib/x86_64-linux-gnu/libpthread-2.27.so
+7f8ff6d96000-7f8ff6d97000 rw-p 0001a000 07:00 1470                       /lib/x86_64-linux-gnu/libpthread-2.27.so
+7f8ff6d97000-7f8ff6d9b000 rw-p 00000000 00:00 0 
+7f8ff6d9b000-7f8ff6db7000 r-xp 00000000 07:00 1501                       /lib/x86_64-linux-gnu/libz.so.1.2.11
+7f8ff6db7000-7f8ff6fb6000 ---p 0001c000 07:00 1501                       /lib/x86_64-linux-gnu/libz.so.1.2.11
+7f8ff6fb6000-7f8ff6fb7000 r--p 0001b000 07:00 1501                       /lib/x86_64-linux-gnu/libz.so.1.2.11
+7f8ff6fb7000-7f8ff6fb8000 rw-p 0001c000 07:00 1501                       /lib/x86_64-linux-gnu/libz.so.1.2.11
+7f8ff6fb8000-7f8ff6fb9000 r-xp 00000000 07:08 188                        /snap/dbeaver-ce/108/lib/bindtextdomain.so
+7f8ff6fb9000-7f8ff71b9000 ---p 00001000 07:08 188                        /snap/dbeaver-ce/108/lib/bindtextdomain.so
+7f8ff71b9000-7f8ff71ba000 r--p 00001000 07:08 188                        /snap/dbeaver-ce/108/lib/bindtextdomain.so
+7f8ff71ba000-7f8ff71bb000 rw-p 00002000 07:08 188                        /snap/dbeaver-ce/108/lib/bindtextdomain.so
+7f8ff71bb000-7f8ff71e4000 r-xp 00000000 07:00 1356                       /lib/x86_64-linux-gnu/ld-2.27.so
+7f8ff71e4000-7f8ff71e6000 r--s 00000000 fd:02 6816923                    /home/andre/snap/dbeaver-ce/common/.cache/fontconfig/b3043b29744cf0a429678d296f5e4026-le64.cache-7
+7f8ff71e6000-7f8ff7237000 r--p 00000000 07:0b 543                        /snap/dbeaver-ce/108/gnome-platform/usr/lib/locale/aa_DJ.utf8/LC_CTYPE
+7f8ff7237000-7f8ff7238000 r--p 00000000 07:0b 634                        /snap/dbeaver-ce/108/gnome-platform/usr/lib/locale/agr_PE/LC_NUMERIC
+7f8ff7238000-7f8ff7239000 r--p 00000000 07:0b 5803                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/locale/pt_BR.utf8/LC_TIME
+7f8ff7239000-7f8ff723a000 r--p 00000000 07:0b 5798                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/locale/pt_BR.utf8/LC_MONETARY
+7f8ff723a000-7f8ff7241000 r--s 00000000 07:00 5737                       /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache
+7f8ff7241000-7f8ff72bf000 rw-p 00000000 00:00 0 
+7f8ff72bf000-7f8ff72c3000 ---p 00000000 00:00 0 
+7f8ff72c3000-7f8ff73c5000 rw-p 00000000 00:00 0 
+7f8ff73c5000-7f8ff73c6000 r--p 00000000 07:0b 5797                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/locale/pt_BR.utf8/LC_MESSAGES/SYS_LC_MESSAGES
+7f8ff73c6000-7f8ff73c7000 r--p 00000000 07:0b 551                        /snap/dbeaver-ce/108/gnome-platform/usr/lib/locale/aa_DJ.utf8/LC_PAPER
+7f8ff73c7000-7f8ff73c8000 r--p 00000000 07:0b 633                        /snap/dbeaver-ce/108/gnome-platform/usr/lib/locale/agr_PE/LC_NAME
+7f8ff73c8000-7f8ff73c9000 r--p 00000000 07:0b 5791                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/locale/pt_BR.utf8/LC_ADDRESS
+7f8ff73c9000-7f8ff73ca000 r--p 00000000 07:0b 5802                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/locale/pt_BR.utf8/LC_TELEPHONE
+7f8ff73ca000-7f8ff73cb000 r--p 00000000 07:0b 545                        /snap/dbeaver-ce/108/gnome-platform/usr/lib/locale/aa_DJ.utf8/LC_MEASUREMENT
+7f8ff73cb000-7f8ff73cc000 r--p 00000000 07:0b 5794                       /snap/dbeaver-ce/108/gnome-platform/usr/lib/locale/pt_BR.utf8/LC_IDENTIFICATION
+7f8ff73cc000-7f8ff73d1000 rw-p 00000000 00:00 0 
+7f8ff73d1000-7f8ff73d8000 ---p 00000000 00:00 0 
+7f8ff73d8000-7f8ff73e0000 rw-s 00000000 00:25 205823                     /tmp/hsperfdata_andre/376562
+7f8ff73e0000-7f8ff73e1000 ---p 00000000 00:00 0 
+7f8ff73e1000-7f8ff73e2000 r--p 00000000 00:00 0 
+7f8ff73e2000-7f8ff73e4000 rw-p 00000000 00:00 0 
+7f8ff73e4000-7f8ff73e5000 r--p 00029000 07:00 1356                       /lib/x86_64-linux-gnu/ld-2.27.so
+7f8ff73e5000-7f8ff73e6000 rw-p 0002a000 07:00 1356                       /lib/x86_64-linux-gnu/ld-2.27.so
+7f8ff73e6000-7f8ff73e7000 rw-p 00000000 00:00 0 
+7ffd9d35b000-7ffd9d37d000 rw-p 00000000 00:00 0                          [stack]
+7ffd9d384000-7ffd9d388000 r--p 00000000 00:00 0                          [vvar]
+7ffd9d388000-7ffd9d38a000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+
+VM Arguments:
+jvm_args: -XX:+IgnoreUnrecognizedVMOptions -Dosgi.requiredJavaVersion=11 -Xms64m -Xmx1024m -Duser.home=/home/andre/snap/dbeaver-ce/108 
+java_command: /snap/dbeaver-ce/108/usr/share/dbeaver//plugins/org.eclipse.equinox.launcher_1.6.0.v20200915-1508.jar -os linux -ws gtk -arch x86_64 -showsplash -launcher /snap/dbeaver-ce/108/usr/share/dbeaver/dbeaver -name Dbeaver --launcher.library /snap/dbeaver-ce/108/usr/share/dbeaver//plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.2.0.v20200915-1442/eclipse_11201.so -startup /snap/dbeaver-ce/108/usr/share/dbeaver//plugins/org.eclipse.equinox.launcher_1.6.0.v20200915-1508.jar --launcher.overrideVmargs -exitdata f802f -vm /snap/dbeaver-ce/108/usr/share/dbeaver/jre/bin/java -vmargs -XX:+IgnoreUnrecognizedVMOptions -Dosgi.requiredJavaVersion=11 -Xms64m -Xmx1024m -jar /snap/dbeaver-ce/108/usr/share/dbeaver//plugins/org.eclipse.equinox.launcher_1.6.0.v20200915-1508.jar
+java_class_path (initial): /snap/dbeaver-ce/108/usr/share/dbeaver//plugins/org.eclipse.equinox.launcher_1.6.0.v20200915-1508.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 3                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 1                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 4                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+     bool IgnoreUnrecognizedVMOptions              = true                                      {product} {command line}
+   size_t InitialHeapSize                          = 67108864                                  {product} {command line}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 1073741824                                {product} {command line}
+   size_t MaxNewSize                               = 643825664                                 {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5830732                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122913754                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122913754                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=/snap/dbeaver-ce/108/usr/lib/jvm/java-8-openjdk-amd64
+_JAVA_OPTIONS=-Duser.home=/home/andre/snap/dbeaver-ce/108
+PATH=/snap/dbeaver-ce/108/usr/sbin:/snap/dbeaver-ce/108/usr/bin:/snap/dbeaver-ce/108/sbin:/snap/dbeaver-ce/108/bin:/snap/dbeaver-ce/108/usr/lib/jvm/java-8-openjdk-amd64/bin:/snap/dbeaver-ce/108/usr/lib/jvm/java-8-openjdk-amd64/jre/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/dbeaver-ce/108/gnome-platform/usr/bin
+USERNAME=andre
+LD_LIBRARY_PATH=/var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void:/snap/dbeaver-ce/108/lib/x86_64-linux-gnu:/snap/dbeaver-ce/108/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64:/snap/dbeaver-ce/108/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server:/snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu:/snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu/pulseaudio:/snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib:/snap/dbeaver-ce/108/usr/share/dbeaver/jre/lib/jli::/snap/dbeaver-ce/108/lib:/snap/dbeaver-ce/108/usr/lib:/snap/dbeaver-ce/108/lib/x86_64-linux-gnu:/snap/dbeaver-ce/108/usr/lib/x86_64-linux-gnu:/snap/dbeaver-ce/108/gnome-platform/lib/x86_64-linux-gnu:/snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu:/snap/dbeaver-ce/108/gnome-platform/usr/lib:/snap/dbeaver-ce/108/gnome-platform/lib:/snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/dri:/var/lib/snapd/lib/gl:/snap/dbeaver-ce/108/gnome-platform/usr/lib/x86_64-linux-gnu/pulseaudio
+LD_PRELOAD=:/snap/dbeaver-ce/108/lib/bindtextdomain.so
+SHELL=/bin/bash
+DISPLAY=:1
+LANG=pt_BR.UTF-8
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xf2b310], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xf2b310], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0xf2b310], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: SIG_IGN, sa_mask[0]=00000000000010000000000000000000, sa_flags=SA_RESTART
+SIGXFSZ: [libjvm.so+0xc4e5c0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0xf2b310], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR2: [libjvm.so+0xc4e460], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0xc4e7c0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0xc4e7c0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0xc4e7c0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0xc4e7c0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:NAME="Ubuntu Core"
+VERSION="18"
+ID=ubuntu-core
+PRETTY_NAME="Ubuntu Core 18"
+VERSION_ID="18"
+HOME_URL="https://snapcraft.io/"
+BUG_REPORT_URL="http://bugs.launchpad.net/snappy/"
+uname:Linux 5.11.11-200.fc33.x86_64 #1 SMP Tue Mar 30 16:53:32 UTC 2021 x86_64
+OS uptime: 4 days 7:59 hours
+libc:glibc 2.27 NPTL 2.27 
+rlimit (soft/hard): STACK 8192k/infinity , CORE infinity/infinity , NPROC 31305/31305 , NOFILE 524288/524288 , AS infinity/infinity , CPU infinity/infinity , DATA infinity/infinity , FSIZE infinity/infinity , MEMLOCK 64k/64k
+load average:6,69 5,30 3,73
+
+/proc/meminfo:
+MemTotal:        8053952 kB
+MemFree:          796348 kB
+MemAvailable:    2212600 kB
+Buffers:           66604 kB
+Cached:          1645744 kB
+SwapCached:        21712 kB
+Active:          1616676 kB
+Inactive:        2374544 kB
+Active(anon):    1075724 kB
+Inactive(anon):  1479056 kB
+Active(file):     540952 kB
+Inactive(file):   895488 kB
+Unevictable:       53608 kB
+Mlocked:            6188 kB
+SwapTotal:      12238840 kB
+SwapFree:        5724064 kB
+Dirty:               812 kB
+Writeback:             0 kB
+AnonPages:       2318764 kB
+Mapped:           312488 kB
+Shmem:            272400 kB
+KReclaimable:     287428 kB
+Slab:             487752 kB
+SReclaimable:     287428 kB
+SUnreclaim:       200324 kB
+KernelStack:       22176 kB
+PageTables:        59480 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    16265816 kB
+Committed_AS:   20849368 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       70772 kB
+VmallocChunk:          0 kB
+Percpu:             5696 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+FileHugePages:         0 kB
+FilePmdMapped:         0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+Hugetlb:               0 kB
+DirectMap4k:     1143616 kB
+DirectMap2M:     7157760 kB
+DirectMap1G:     1048576 kB
+
+/sys/kernel/mm/transparent_hugepage/enabled:
+always [madvise] never
+/sys/kernel/mm/transparent_hugepage/defrag (defrag/compaction efforts parameter):
+always defer defer+madvise [madvise] never
+
+/proc/sys/kernel/threads-max (system-wide limit on the number of threads):
+62611
+/proc/sys/vm/max_map_count (maximum number of memory map areas a process may have):
+65530
+/proc/sys/kernel/pid_max (system-wide limit on number of process identifiers):
+4194304
+
+Steal ticks since vm start: 0
+Steal ticks percentage since vm start:  0,000
+
+CPU:total 4 (initial active 4) (2 cores per cpu, 2 threads per core) family 6 model 61 stepping 4, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx, fma
+CPU Model and flags from /proc/cpuinfo:
+model name	: Intel(R) Core(TM) i5-5200U CPU @ 2.20GHz
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap intel_pt xsaveopt dtherm ida arat pln pts md_clear flush_l1d
+Online cpus:
+0-3
+Offline cpus:
+
+BIOS frequency limitation:
+<Not Available>
+Frequency switch latency (ns):
+20000
+Available cpu frequencies:
+<Not Available>
+Current governor:
+schedutil
+Core performance/turbo boost:
+<Not Available>
+
+Memory: 4k page, physical 8053952k(796348k free), swap 12238840k(5724064k free)
+
+vm_info: OpenJDK 64-Bit Server VM (11.0.9.1+1) for linux-amd64 JRE (11.0.9.1+1), built on Nov 10 2020 15:30:20 by "" with gcc 7.5.0
+
+END.
